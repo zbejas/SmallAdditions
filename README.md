@@ -20,13 +20,13 @@ Command | Aliases | Usage
 By giving a player or group the permission _smalladd.notrample_. When the player or group has this permission, they can't trample any of the crops.
 
 ---
-![Gif broken (click)](https://i.imgur.com/qiCk9Ac.gif)
+![Gif broken (click)](https://imgur.com/tBWydPo.gif)
 
 ### Crop harvest
 By giving a player or group the permission _smalladd.crops_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contains the seeds, the seed will be taken out of the drop and if the drops dont contain it, then the seed will be taken out of the players inventory. If players inventory doesn't contain any seeds, the crop wont be replanted.
 
 ---
-![Gif broken (click)](http://https://i.imgur.com/XU3iQkw.gif)
+![Gif broken (click)](https://imgur.com/Fo5feLo.gif)
 
 
 ## Permissions
