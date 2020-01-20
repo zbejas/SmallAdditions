@@ -30,3 +30,5 @@ smalladd.carrot | Enables carrot harvest.
 smalladd.beetroot | Enables beetroot harvest.
 smalladd.netherwart | Enables nether wart harvest.
 
+## Support the project
+If you like this project, and wish to see frequent updates, support me on [PayPal](https://www.paypal.me/zbe420).
