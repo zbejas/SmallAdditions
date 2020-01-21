@@ -7,7 +7,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.bramhaag.example.Updater;
 import si.zbe.Commands.AutoFeedCommand;
 import si.zbe.Commands.UpdateCommand;
 import si.zbe.Commands.WorkbenchCommand;
@@ -98,16 +97,12 @@ public class Main extends JavaPlugin {
 	}
 
 	public void updateCheck() {
-		Updater updater = new Updater(this, "74452");
-		Updater.UpdateResults result = updater.checkForUpdates();
-		getLogger().info(Messages.getString("SA.UpdateCheck"));
-		if (result.getResult() == Updater.UpdateResult.FAIL) {
-			getLogger().info(Messages.getString("SA.UpdateFail") + result.getVersion());
-		} else if (result.getResult() == Updater.UpdateResult.NO_UPDATE) {
-			getLogger().info(Messages.getString("SA.NoUpdate"));
-
-		} else if (result.getResult() == Updater.UpdateResult.UPDATE_AVAILABLE) {
-			getLogger().info(Messages.getString("SA.UpdateFound"));
-		}
+		new UpdateChecker(this, 74452).getVersion(version -> {
+            if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                getLogger().info(Messages.getString("SA.NoUpdate"));
+            } else {
+                getLogger().info(Messages.getString("SA.UpdateFound"));
+            }
+        });
 	}
 }
