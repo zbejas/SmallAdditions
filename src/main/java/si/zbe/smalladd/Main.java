@@ -50,7 +50,7 @@ public class Main extends JavaPlugin {
 		// UPDATE
 		getCommand("saupdate").setExecutor(new UpdateCommand(this));
 	}
-
+	
 	private void registerEvents() {
 		// CROPS
 		if (getConfig().getBoolean("Crops")) {
