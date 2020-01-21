@@ -12,7 +12,7 @@ public class Messages {
      *  language_fr.properties
      */
     private static final String BUNDLE_EN = "si.zbe.languages.english";
-    private static final String BUNDLE_SLO = "si.zbe.Languages.slovene";
+    private static final String BUNDLE_SLO = "si.zbe.languages.slovene";
     private static final ResourceBundle RESOURCE_EN = ResourceBundle.getBundle(BUNDLE_EN);
     private static final ResourceBundle RESOURCE_SLO = ResourceBundle.getBundle(BUNDLE_SLO);
 
