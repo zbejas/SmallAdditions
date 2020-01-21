@@ -1,0 +1,64 @@
+name: SmallAdditions
+main: si.zbe.smalladd.Main
+author: TheZbe
+description: 'Adds all the small details you will love.'
+api-version: 1.13
+version: ${project.version}
+commands:
+   autofeed:
+      description: Enables or disables AutoFeed.
+      usage: /<command> <atribute>
+      aliases: af
+   portableworkbench:
+      description: Sets name to 'Portable Workbench'.
+      usage: /<command>
+      aliases: pwb
+   saupdate:
+      description: Checks for updates.
+      usage: /<command>
+      aliases: sau
+permissions:
+  smalladd.*:
+    description: 'Gives access to all SmallAdditions features.'
+    children:
+      smalladd.crops: true
+      smalladd.autofeed: true
+      smalladd.notrample: true
+      smalladd.workbench: true
+      smalladd.admin: true
+  smalladd.admin:
+    description: 'Allows you to check for updates.'
+    default: op
+  smalladd.workbench:
+    description: 'Allows you to open portable workbench.'
+    default: op
+  smalladd.autofeed:
+    description: 'Allows you to get fed from items in your inventory.'
+    default: op
+  smalladd.notrample:
+    description: 'Prevents player from trampling crops.'
+    default: op
+  smalladd.crops:
+    description: 'Allows you to easily pick up and replant crops.'
+    default: op
+    children:
+      smalladd.wheat: true
+      smalladd.potato: true
+      smalladd.carrot: true
+      smalladd.beetroot: true
+      smalladd.netherwart: true
+  smalladd.wheat:
+    description: 'Allows you to easily pick up and replant wheat.'
+    default: op
+  smalladd.potato:
+    description: 'Allows you to easily pick up and replant potatoes.'
+    default: op
+  smalladd.carrot:
+    description: 'Allows you to easily pick up and replant carrots.'
+    default: op
+  smalladd.beetroot:
+    description: 'Allows you to easily pick up and replant beetroots.'
+    default: op
+  smalladd.netherwart:
+    description: 'Allows you to easily pick up and replant beetroots.'
+    default: op
