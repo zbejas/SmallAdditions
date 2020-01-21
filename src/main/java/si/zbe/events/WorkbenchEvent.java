@@ -17,16 +17,14 @@ public class WorkbenchEvent implements Listener {
             return;
 
         if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            /*
-             * TODO the player has a main and secondary hand
-             *  p.getInventory().getItemInMainHand()
-             *  p.getInventory().getItemInOffHand()
-             */
-			final ItemStack itemInHand = p.getItemInHand();
-			if (itemInHand.getType() == Material.CRAFTING_TABLE) {
+        	final ItemStack itemInHand = p.getInventory().getItemInMainHand();
+			final ItemStack itemInOffHand = p.getInventory().getItemInOffHand();
+			
+			if (itemInHand.getType() == Material.CRAFTING_TABLE || itemInOffHand.getType() == Material.CRAFTING_TABLE) {
 				//TODO ItemMeta could be null
-                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench"))
+                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench") && !itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench"))
                     return;
+                
                 p.openWorkbench(null, true);
                 e.setCancelled(true);
             }
