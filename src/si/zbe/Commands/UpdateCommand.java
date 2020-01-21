@@ -5,9 +5,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-import me.bramhaag.example.Updater;
 import si.zbe.SmallAdd.Main;
 import si.zbe.SmallAdd.Messages;
+import si.zbe.SmallAdd.UpdateChecker;
 
 public class UpdateCommand implements CommandExecutor {
 	private final Main plugin;
@@ -25,17 +25,13 @@ public class UpdateCommand implements CommandExecutor {
 			return true;
 		}
 
-		Updater updater = new Updater(plugin, "74452");
-		Updater.UpdateResults result = updater.checkForUpdates();
-		if (result.getResult() == Updater.UpdateResult.FAIL) {
-			sender.sendMessage(ChatColor.RED + Messages.getString("SA.UpdateFail") + result.getVersion());
-		} else if (result.getResult() == Updater.UpdateResult.NO_UPDATE) {
-			sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.NoUpdate"));
-
-		} else if (result.getResult() == Updater.UpdateResult.UPDATE_AVAILABLE) {
-			sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.UpdateFound"));
-		} else
-			sender.sendMessage(ChatColor.RED + Messages.getString("SA.UpdateFail"));
+		new UpdateChecker(plugin, 74452).getVersion(version -> {
+            if (plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+            	sender.sendMessage(ChatColor.GREEN +  Messages.getString("SA.NoUpdate"));
+            } else {
+            	sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.UpdateFound"));
+            }
+        });
 
 		return true;
 	}
