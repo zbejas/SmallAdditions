@@ -29,17 +29,15 @@ public class WorkbenchCommand implements CommandExecutor {
 
 		Player p = (Player) sender;
 		
-		if (args.length > 0) {
-			p.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
-			return true;
-		}
-
 		if (!p.hasPermission("smalladd.workbench")) {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return true;
 		}
 		
-		
+		if (args.length > 0) {
+			p.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
+			return true;
+		}
 		
 		if (p.getItemInHand().getType() == Material.CRAFTING_TABLE) {
 			ItemStack item = p.getItemInHand();
