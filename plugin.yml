@@ -3,7 +3,7 @@ main: si.zbe.SmallAdd.Main
 author: TheZbe
 description: 'Adds all the small details you will love.'
 api-version: 1.13
-version: 1.3.2
+version: 1.3.3
 commands:
    autofeed:
       description: Enables or disables AutoFeed.
@@ -13,6 +13,10 @@ commands:
       description: Sets name to 'Portable Workbench'.
       usage: /<command>
       aliases: pwb
+   saupdate:
+      description: Checks for updates.
+      usage: /<command>
+      aliases: sau
 permissions:
   smalladd.*:
     description: 'Gives access to all SmallAdditions features.'
@@ -21,6 +25,9 @@ permissions:
       smalladd.autofeed: true
       smalladd.notrample: true
       smalladd.workbench: true
+  smalladd.admin:
+    description: 'Allows you to check for updates.'
+    default: op
   smalladd.workbench:
     description: 'Allows you to open portable workbench.'
     default: op
