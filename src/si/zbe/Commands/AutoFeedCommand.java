@@ -29,15 +29,19 @@ public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 			sender.sendMessage(ChatColor.RED + Messages.getString("SA.NotAPlayer"));
 			return true;
 		}
-
+		
 		Player p = (Player) sender;
+		
+		if (args.length > 1) {
+			p.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
+		}
 
 		if (!p.hasPermission("smalladd.autofeed")) {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return true;
 		}
 
-		if (map.containsKey(p)) {
+		if (map.containsKey(p) && args.length == 0) {
 			map.remove(p);
 			p.sendMessage(ChatColor.GREEN + Messages.getString("SA.PlayerAutoFeedDisabled"));
 			return true;
@@ -47,6 +51,7 @@ public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.AutoFeedFood"));
 			return true;
 		}
+		
 
 		try {
 			type = Material.valueOf(args[0].toUpperCase());
@@ -56,6 +61,13 @@ public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 			}
 		} catch (Exception e) {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
+			return true;
+		}
+		
+		if (args.length == 1 && map.containsKey(p) && map.get(p) != type) {
+			map.remove(p);
+			map.put(p, type);
+			p.sendMessage(ChatColor.GREEN + Messages.getString("SA.PlayerAutoFeedChanged"));
 			return true;
 		}
 
