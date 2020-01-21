@@ -1,4 +1,4 @@
-package si.zbe.SmallAdd;
+package si.zbe.smalladd;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
- package si.zbe.Events;
+ package si.zbe.events;
  
  import org.bukkit.Material;
 import org.bukkit.event.EventHandler;

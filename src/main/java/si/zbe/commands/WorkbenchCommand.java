@@ -1,4 +1,4 @@
-package si.zbe.Commands;
+package si.zbe.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -9,8 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import si.zbe.SmallAdd.Main;
-import si.zbe.SmallAdd.Messages;
+import si.zbe.smalladd.Main;
+import si.zbe.smalladd.Messages;
 
 public class WorkbenchCommand implements CommandExecutor {
 	@SuppressWarnings("unused")
