@@ -45,7 +45,7 @@ public class CropEvent implements Listener {
 	public int getMaxGrowth(Material m) {
 		if (m == Material.WHEAT || m == Material.CARROTS || m == Material.POTATOES)
 			return 7;
-		else if (m == Material.BEETROOT || m == Material.NETHER_WART)
+		else if (m == Material.BEETROOTS || m == Material.NETHER_WART)
 			return 3;
 		else
 			return 0;
