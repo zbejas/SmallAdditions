@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.inventory.ItemStack;
+
 import si.zbe.commands.AutoFeedCommand;
 import si.zbe.smalladd.Messages;
 
