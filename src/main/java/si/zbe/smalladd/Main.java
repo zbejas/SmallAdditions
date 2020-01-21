@@ -3,10 +3,12 @@ package si.zbe.smalladd;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import si.zbe.commands.AutoFeedCommand;
+import si.zbe.commands.UpdateCommand;
 import si.zbe.commands.WorkbenchCommand;
 import si.zbe.events.CropEvent;
 import si.zbe.events.FoodEvent;
 import si.zbe.events.TrampleEvent;
+import si.zbe.events.UpdateEvent;
 import si.zbe.events.WorkbenchEvent;
 
 public class Main extends JavaPlugin {
@@ -44,6 +46,9 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
+		
+		// UPDATE
+		getCommand("saupdate").setExecutor(new UpdateCommand(this));
 	}
 
 	private void registerEvents() {
@@ -75,6 +80,9 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
+		
+		// UPDATE
+		getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
 	}
 
 	private void setConfig() {
