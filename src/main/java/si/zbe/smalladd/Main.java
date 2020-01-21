@@ -17,6 +17,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		plugin = this;
 		setConfig();
+		updateCheck();
 		registerCommands();
 		registerEvents();
 		getLogger().info(Messages.getString("SA.SmallAdditionsEnabled"));
@@ -87,4 +88,15 @@ public class Main extends JavaPlugin {
 		getConfig().options().header(Messages.getString("SA.ConfigLanguage"));
 		saveConfig();
 	}
+
+	private void updateCheck() {
+		new UpdateChecker(this, 74452).getVersion(version -> {
+			if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+				getLogger().info(Messages.getString("SA.NoUpdate"));
+			} else {
+				getLogger().info(Messages.getString("SA.UpdateFound"));
+			}
+		});
+	}
+
 }
