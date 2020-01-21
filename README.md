@@ -10,6 +10,7 @@ Command | Aliases | Usage | Premission
 --- | --- | --- | ----
 /autofeed <Food option> | /af | Player selects food that is then fed to the player. | smalladd.autofeed
 /portableworkbench | /pwb | Sets item name to 'Portable Workbench'. | smalladd.workbench
+ /saupdate | /sau | Check for updates. | smalladd.admin
 
 ## How it works
 
@@ -36,6 +37,7 @@ By giving a player or group the permission _smalladd.workbech_, the player can u
 Permissions | Usage
 --- | ---
 smalladd.*| All permissions for this plugin.
+smalladd.admin | Currently only for update check.
 smalladd.autofeed | Enables auto-feed option
 smalladd.beetroot | Enables beetroot harvest.
 smalladd.carrot | Enables carrot harvest.
