@@ -74,7 +74,7 @@ public class CropEvent implements Listener {
 
 	@SuppressWarnings("deprecation")
 	public void harvestCrop(Material m, Player p, PlayerInteractEvent e) {
-		p.sendMessage("In harvestcrops");
+		//p.sendMessage("In harvestcrops");
 		Block block = e.getClickedBlock();
 		if (isCrop(m)) {
 			if (!e.getPlayer().hasPermission("smalladd." + getCropPerm(m))) {
