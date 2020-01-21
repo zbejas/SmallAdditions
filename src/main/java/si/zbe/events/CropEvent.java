@@ -1,4 +1,4 @@
-package si.zbe.Events;
+package si.zbe.events;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -19,18 +19,15 @@ public class CropEvent implements Listener {
 			if (!isCrop(block.getType()))
 				return;
 
-			Player p = (Player) e.getPlayer();
+			Player p = e.getPlayer();
 
-			harvestCrop(block.getType(), p, e);
+			harvestCrop(block.getType(), e);
 		}
 	}
 
 	public boolean isCrop(Material m) {
-		if (m == Material.WHEAT || m == Material.POTATOES || m == Material.CARROTS || m == Material.BEETROOTS
-				|| m == Material.NETHER_WART)
-			return true;
-		else
-			return false;
+		return m == Material.WHEAT || m == Material.POTATOES || m == Material.CARROTS || m == Material.BEETROOTS
+				|| m == Material.NETHER_WART;
 	}
 
 	public Material getSeed(Material m) {
@@ -73,7 +70,7 @@ public class CropEvent implements Listener {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void harvestCrop(Material m, Player p, PlayerInteractEvent e) {
+	public void harvestCrop(Material m, PlayerInteractEvent e) {
 		//p.sendMessage("In harvestcrops");
 		Block block = e.getClickedBlock();
 		if (isCrop(m)) {

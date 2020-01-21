@@ -1,4 +1,4 @@
-package si.zbe.Commands;
+package si.zbe.commands;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,8 +13,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-import si.zbe.SmallAdd.Main;
-import si.zbe.SmallAdd.Messages;
+import si.zbe.smalladd.Main;
+import si.zbe.smalladd.Messages;
 
 public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 	@SuppressWarnings("unused")

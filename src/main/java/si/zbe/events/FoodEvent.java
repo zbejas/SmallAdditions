@@ -1,4 +1,4 @@
-package si.zbe.Events;
+package si.zbe.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,8 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.inventory.ItemStack;
-import si.zbe.Commands.AutoFeedCommand;
-import si.zbe.SmallAdd.Messages;
+import si.zbe.commands.AutoFeedCommand;
+import si.zbe.smalladd.Messages;
 
 public class FoodEvent implements Listener {
 	public void eatFood(Material mat, Player p, FoodLevelChangeEvent e) {
@@ -20,15 +20,13 @@ public class FoodEvent implements Listener {
 			if (p.getInventory().containsAtLeast(new ItemStack(mat), 1)) {
 				if (e.getFoodLevel() + getNutritionValue(mat) < 20) {
 					e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
-					p.setSaturation((float) getSaturationValue(mat));
-					p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
 				} else {
 
 					e.setFoodLevel(20);
-					p.setSaturation((float) getSaturationValue(mat));
-					p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
 				}
-				p.getInventory().removeItem(new ItemStack[] { new ItemStack(mat, 1) });
+				p.setSaturation((float) getSaturationValue(mat));
+				p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
+				p.getInventory().removeItem(new ItemStack(mat, 1));
 			}
 		} else if (e.getFoodLevel() < 20 && p.getHealth() < 20.0D) {
 			int counter = 0;
@@ -41,7 +39,7 @@ public class FoodEvent implements Listener {
 					p.setSaturation((float) getSaturationValue(mat));
 				}
 				p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
-				p.getInventory().removeItem(new ItemStack[] { new ItemStack(mat, 1) });
+				p.getInventory().removeItem(new ItemStack(mat, 1));
 				counter++;
 			}
 			if (counter != 1)
@@ -51,7 +49,7 @@ public class FoodEvent implements Listener {
 			e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
 			p.setSaturation((float) getSaturationValue(mat));
 			p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
-			p.getInventory().removeItem(new ItemStack[] { new ItemStack(mat, 1) });
+			p.getInventory().removeItem(new ItemStack(mat, 1));
 		}
 	}
 
@@ -67,8 +65,8 @@ public class FoodEvent implements Listener {
 			return;
 		}
 
-		if (p.getInventory().containsAtLeast(new ItemStack((Material) AutoFeedCommand.map.get(p)), 1)) {
-			eatFood((Material) AutoFeedCommand.map.get(p), p, e);
+		if (p.getInventory().containsAtLeast(new ItemStack(AutoFeedCommand.map.get(p)), 1)) {
+			eatFood(AutoFeedCommand.map.get(p), p, e);
 		}
 	}
 
