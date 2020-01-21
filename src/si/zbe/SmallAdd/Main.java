@@ -8,9 +8,11 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import si.zbe.Commands.AutoFeedCommand;
+import si.zbe.Commands.WorkbenchCommand;
 import si.zbe.Events.CropEvent;
 import si.zbe.Events.FoodEvent;
 import si.zbe.Events.TrampleEvent;
+import si.zbe.Events.WorkbenchEvent;
 
 public class Main extends JavaPlugin {
 	public FileConfiguration config = getConfig();
@@ -30,26 +32,50 @@ public class Main extends JavaPlugin {
 	}
 
 	public void registerCommands() {
-		getCommand("autofeed").setExecutor((CommandExecutor) new AutoFeedCommand(this));
-		getCommand("autofeed").setTabCompleter((TabCompleter) new AutoFeedCommand(this));
+		// AUTOFEED
+		if (this.config.getBoolean("AutoFeed")) {
+			getCommand("autofeed").setExecutor((CommandExecutor) new AutoFeedCommand(this));
+			getCommand("autofeed").setTabCompleter((TabCompleter) new AutoFeedCommand(this));
+		} else {
+			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
+		}
+		
+		// WORKBENCH
+		if (this.config.getBoolean("Workbench")) {
+			getCommand("portableworkbench").setExecutor((CommandExecutor) new WorkbenchCommand(this));
+		} else {
+			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
+		}
 	}
 
 	public void registerEvents() {
+		// CROPS
 		if (this.config.getBoolean("Crops")) {
 			getServer().getPluginManager().registerEvents((Listener) new CropEvent(), (Plugin) this);
 		} else {
 			getLogger().info(Messages.getString("SA.CropsDisabled"));
 		}
+		
+		// AUTOFEED
 		if (this.config.getBoolean("AutoFeed")) {
 			getServer().getPluginManager().registerEvents((Listener) new FoodEvent(), (Plugin) this);
 			getLogger().info(Messages.getString("SA.AutoFeedWarning"));
 		} else {
 			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
 		}
+		
+		// NOTRAMPLE
 		if (this.config.getBoolean("NoTrample")) {
 			getServer().getPluginManager().registerEvents((Listener) new TrampleEvent(), (Plugin) this);
 		} else {
 			getLogger().info(Messages.getString("SA.NoTrampleDisabled"));
+		}
+		
+		// WORKBENCH
+		if (this.config.getBoolean("Workbench")) {
+			getServer().getPluginManager().registerEvents((Listener) new WorkbenchEvent(), (Plugin) this);
+		} else {
+			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
 	}
 
@@ -57,6 +83,7 @@ public class Main extends JavaPlugin {
 		this.config.addDefault("Crops", Boolean.valueOf(true));
 		this.config.addDefault("AutoFeed", Boolean.valueOf(true));
 		this.config.addDefault("NoTrample", Boolean.valueOf(true));
+		this.config.addDefault("Workbench", Boolean.valueOf(true));
 		this.config.addDefault("Language", "english");
 		this.config.options().copyDefaults(true);
 		saveConfig();
