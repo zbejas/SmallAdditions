@@ -2,6 +2,7 @@ package si.zbe.Events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,10 +21,12 @@ public class FoodEvent implements Listener {
 				if (e.getFoodLevel() + getNutritionValue(mat) < 20) {
 					e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
 					p.setSaturation((float) getSaturationValue(mat));
+					p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
 				} else {
 
 					e.setFoodLevel(20);
 					p.setSaturation((float) getSaturationValue(mat));
+					p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
 				}
 				p.getInventory().removeItem(new ItemStack[] { new ItemStack(mat, 1) });
 			}
@@ -37,15 +40,17 @@ public class FoodEvent implements Listener {
 					e.setFoodLevel(20);
 					p.setSaturation((float) getSaturationValue(mat));
 				}
+				p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
 				p.getInventory().removeItem(new ItemStack[] { new ItemStack(mat, 1) });
 				counter++;
 			}
 			if (counter != 1)
-				p.sendMessage(ChatColor.GREEN + "[AutoFeed] " + Messages.getString("SA.RapidFeed1") + " " + counter + " "
-						+ Messages.getString("SA.RapidFeed2"));
+				p.sendMessage(ChatColor.GREEN + "[AutoFeed] " + Messages.getString("SA.RapidFeed1") + " " + counter
+						+ " " + Messages.getString("SA.RapidFeed2"));
 		} else if (e.getFoodLevel() + getNutritionValue(mat) == 20) {
 			e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
 			p.setSaturation((float) getSaturationValue(mat));
+			p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
 			p.getInventory().removeItem(new ItemStack[] { new ItemStack(mat, 1) });
 		}
 	}
