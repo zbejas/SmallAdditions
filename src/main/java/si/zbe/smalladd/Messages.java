@@ -18,21 +18,21 @@ public class Messages {
 
     public static String getString(String key) {
         final String language = Main.plugin.getConfig().getString("Language");
-        //TODO language may be null, to inconsistent config files
+        
         if (language.equalsIgnoreCase("english"))
             try {
                 return RESOURCE_EN.getString(key);
             } catch (MissingResourceException e) {
                 return "!" + key + "!";
             }
-        if (language.equalsIgnoreCase("slovene")) {
+        else if (language.equalsIgnoreCase("slovene")) {
             try {
                 return RESOURCE_SLO.getString(key);
             } catch (MissingResourceException e) {
                 return "!" + key + "!";
             }
         }
-        try {
+        else try {
             Main.plugin.getLogger().info(RESOURCE_EN.getString("SA.WrongLanguage") + "Selected language: " + language);
             return RESOURCE_EN.getString(key);
         } catch (MissingResourceException e) {
