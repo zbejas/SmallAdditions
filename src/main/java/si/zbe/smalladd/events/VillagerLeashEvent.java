@@ -24,22 +24,18 @@ public class VillagerLeashEvent implements Listener {
 		
 		Villager v = (Villager) e.getRightClicked();
     	final ItemStack itemInHand = p.getInventory().getItemInMainHand();
-		final ItemStack itemInOffHand = p.getInventory().getItemInOffHand();
 		
-		/*if (v.isLeashed()) {
-			v.setLeashHolder(null);
+		if (itemInHand.getType() != Material.LEAD)
 			return;
-		}*/
 		
-		if (itemInHand.getType() != Material.LEAD && itemInOffHand.getType() != Material.LEAD)
-			return;
+		
 		
 		if (!v.isLeashed())
 			Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
 			    @Override
 			    public void run() {
+			    	itemInHand.setAmount(itemInHand.getAmount() -1);
 			        v.setLeashHolder(p);
-			        p.getInventory().remove(new ItemStack(Material.LEAD, 1));
 			    }
 			}, 1L);
 	}
