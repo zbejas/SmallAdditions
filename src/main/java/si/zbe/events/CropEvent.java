@@ -2,22 +2,25 @@ package si.zbe.events;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import net.minecraft.server.v1_15_R1.BlockPosition;
+
 public class CropEvent implements Listener {
 
 	@EventHandler
 	public void onRightClick(PlayerInteractEvent e) {
 		Block block = e.getClickedBlock();
-
+		
 		if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			if (!isCrop(block.getType()))
 				return;
-
+			
 			harvestCrop(block.getType(), e);
 		}
 	}
@@ -68,7 +71,6 @@ public class CropEvent implements Listener {
 
 	@SuppressWarnings("deprecation")
 	public void harvestCrop(Material m, PlayerInteractEvent e) {
-		//p.sendMessage("In harvestcrops");
 		Block block = e.getClickedBlock();
 		if (isCrop(m)) {
 			if (!e.getPlayer().hasPermission("smalladd." + getCropPerm(m))) {
@@ -85,17 +87,21 @@ public class CropEvent implements Listener {
 					SeedInDrop = true;
 				}
 			}
+			
 			if (SeedInDrop) {
 				block.getDrops().remove(new ItemStack(getSeed(m), 1));
+				((CraftPlayer) e.getPlayer()).getHandle().playerInteractManager.breakBlock(new BlockPosition(block.getX(), block.getY(), block.getZ()));
 				block.breakNaturally();
 				block.setType(m);
 				return;
 			} else if (e.getPlayer().getInventory().containsAtLeast(new ItemStack(getSeed(m)), 1)) {
 				e.getPlayer().getInventory().remove(new ItemStack(getSeed(m), 1));
+				((CraftPlayer) e.getPlayer()).getHandle().playerInteractManager.breakBlock(new BlockPosition(block.getX(), block.getY(), block.getZ()));
 				block.breakNaturally();
 				block.setType(m);
 				return;
 			} else
+				((CraftPlayer) e.getPlayer()).getHandle().playerInteractManager.breakBlock(new BlockPosition(block.getX(), block.getY(), block.getZ()));
 				block.breakNaturally();
 		}
 	}
