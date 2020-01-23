@@ -26,8 +26,12 @@ permissions:
       smalladd.notrample: true
       smalladd.workbench: true
       smalladd.admin: true
+      smalladd.villagerleash: true
   smalladd.admin:
     description: 'Allows you to check for updates.'
+    default: op
+  smalladd.villagerleash:
+    description: 'Allows you to leash a villager.'
     default: op
   smalladd.workbench:
     description: 'Allows you to open portable workbench.'
