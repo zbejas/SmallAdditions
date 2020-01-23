@@ -36,15 +36,16 @@ By giving a player or group the permission _smalladd.workbech_, the player can u
 
 Permissions | Usage
 --- | ---
-smalladd.*| All permissions for this plugin.
+smalladd.* | All permissions for this plugin.
 smalladd.admin | Currently only for update check.
 smalladd.autofeed | Enables auto-feed option
 smalladd.beetroot | Enables beetroot harvest.
 smalladd.carrot | Enables carrot harvest.
 smalladd.crops | Enables harvest function for all crops
 smalladd.netherwart | Enables nether wart harvest.
-smalladd.notrample | Player with permission cant trapmle crops.
+smalladd.notrample | Player with permission cant trample crops.
 smalladd.potato | Enables potato harvest.
+smalladd.villagerleash | Lets you leash villagers.
 smalladd.wheat | Enables wheat harvest.
 smalladd.workbench | Enables portable workbench command and usage.
 
