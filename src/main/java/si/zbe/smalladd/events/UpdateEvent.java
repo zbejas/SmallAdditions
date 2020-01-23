@@ -1,4 +1,4 @@
-package si.zbe.events;
+package si.zbe.smalladd.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;

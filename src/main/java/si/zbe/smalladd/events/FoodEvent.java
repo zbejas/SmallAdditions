@@ -1,4 +1,4 @@
-package si.zbe.events;
+package si.zbe.smalladd.events;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -9,8 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.inventory.ItemStack;
 
-import si.zbe.commands.AutoFeedCommand;
 import si.zbe.smalladd.Messages;
+import si.zbe.smalladd.commands.AutoFeedCommand;
 
 public class FoodEvent implements Listener {
 	public void eatFood(Material mat, Player p, FoodLevelChangeEvent e) {

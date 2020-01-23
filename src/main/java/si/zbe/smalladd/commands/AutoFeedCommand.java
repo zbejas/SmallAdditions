@@ -1,4 +1,4 @@
-package si.zbe.commands;
+package si.zbe.smalladd.commands;
 
 import java.util.ArrayList;
 import java.util.Collections;

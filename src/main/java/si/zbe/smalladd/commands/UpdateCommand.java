@@ -1,4 +1,4 @@
-package si.zbe.commands;
+package si.zbe.smalladd.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

@@ -1,4 +1,4 @@
-package si.zbe.events;
+package si.zbe.smalladd.events;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
