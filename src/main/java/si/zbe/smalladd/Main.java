@@ -2,6 +2,7 @@ package si.zbe.smalladd;
 
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+
 import si.zbe.commands.AutoFeedCommand;
 import si.zbe.commands.UpdateCommand;
 import si.zbe.commands.WorkbenchCommand;
