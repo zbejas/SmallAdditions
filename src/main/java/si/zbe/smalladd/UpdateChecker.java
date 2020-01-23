@@ -26,7 +26,7 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                this.plugin.getLogger().info(Messages.getString("SA.UpdateFail") + exception.getMessage());
+                this.plugin.getLogger().info(Messages.getString("SA.UpdateFail") + " | " + exception.getMessage());
             }
         });
     }
