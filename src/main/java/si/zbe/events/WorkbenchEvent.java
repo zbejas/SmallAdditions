@@ -20,7 +20,9 @@ public class WorkbenchEvent implements Listener {
 			final ItemStack itemInOffHand = p.getInventory().getItemInOffHand();
 			
 			if (itemInHand.getType() == Material.CRAFTING_TABLE || itemInOffHand.getType() == Material.CRAFTING_TABLE) {
-				//TODO ItemMeta could be null
+				if (itemInHand.getItemMeta() == null && itemInOffHand.getItemMeta() == null) 
+					return;
+				
                 if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench") && !itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench"))
                     return;
                 
