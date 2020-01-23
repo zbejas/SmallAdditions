@@ -3,14 +3,16 @@ package si.zbe.smalladd;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import si.zbe.commands.AutoFeedCommand;
-import si.zbe.commands.UpdateCommand;
-import si.zbe.commands.WorkbenchCommand;
-import si.zbe.events.CropEvent;
-import si.zbe.events.FoodEvent;
-import si.zbe.events.TrampleEvent;
-import si.zbe.events.UpdateEvent;
-import si.zbe.events.WorkbenchEvent;
+import si.zbe.smalladd.commands.AutoFeedCommand;
+import si.zbe.smalladd.commands.UpdateCommand;
+import si.zbe.smalladd.commands.WorkbenchCommand;
+import si.zbe.smalladd.events.CropEvent;
+import si.zbe.smalladd.events.FoodEvent;
+import si.zbe.smalladd.events.TrampleEvent;
+import si.zbe.smalladd.events.UpdateEvent;
+import si.zbe.smalladd.events.VillagerDeathEvent;
+import si.zbe.smalladd.events.VillagerLeashEvent;
+import si.zbe.smalladd.events.WorkbenchEvent;
 
 public class Main extends JavaPlugin {
 
@@ -82,6 +84,20 @@ public class Main extends JavaPlugin {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
 		
+		// VILLAGER DROPS
+		if (getConfig().getBoolean("VillagerDrops")) {
+			getServer().getPluginManager().registerEvents(new VillagerDeathEvent(), this);
+		} else {
+			getLogger().info(Messages.getString("SA.VillagerDropsDisabled"));
+		}
+		
+		// VILLAGER LEASH
+		if (getConfig().getBoolean("VillagerLeash")) {
+			getServer().getPluginManager().registerEvents(new VillagerLeashEvent(), this);
+		} else {
+			getLogger().info(Messages.getString("SA.VillagerLeashDisabled"));
+		}
+		
 		// UPDATE
 		getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
 	}
@@ -91,6 +107,8 @@ public class Main extends JavaPlugin {
 		getConfig().addDefault("AutoFeed", true);
 		getConfig().addDefault("NoTrample", true);
 		getConfig().addDefault("Workbench", true);
+		getConfig().addDefault("VillagerDrops", true);
+		getConfig().addDefault("VillagerLeash", true);
 		getConfig().addDefault("Language", "english");
 		getConfig().options().copyDefaults(true);
 		saveConfig();
