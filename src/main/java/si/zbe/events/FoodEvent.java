@@ -22,11 +22,10 @@ public class FoodEvent implements Listener {
 				if (e.getFoodLevel() + getNutritionValue(mat) < 20) {
 					e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
 				} else {
-
 					e.setFoodLevel(20);
 				}
-				p.setSaturation((float) getSaturationValue(mat));
 				p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
+				p.setSaturation((float) getSaturationValue(mat));
 				p.getInventory().removeItem(new ItemStack(mat, 1));
 			}
 		} else if (e.getFoodLevel() < 20 && p.getHealth() < 20.0D) {
