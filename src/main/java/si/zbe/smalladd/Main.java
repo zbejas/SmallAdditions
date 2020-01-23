@@ -1,5 +1,6 @@
 package si.zbe.smalladd;
 
+import org.bstats.bukkit.Metrics;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,10 +18,12 @@ import si.zbe.smalladd.events.WorkbenchEvent;
 public class Main extends JavaPlugin {
 
 	public static Main plugin;
-
+	@SuppressWarnings("unused")
 	@Override
 	public void onEnable() {
 		plugin = this;
+		int pluginId = 6335;
+		Metrics metrics = new Metrics(this, pluginId);
 		setConfig();
 		updateCheck();
 		registerCommands();
@@ -125,5 +128,4 @@ public class Main extends JavaPlugin {
 			}
 		});
 	}
-
 }
