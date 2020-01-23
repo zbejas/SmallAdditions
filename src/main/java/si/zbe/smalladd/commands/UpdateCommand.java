@@ -29,6 +29,7 @@ public class UpdateCommand implements CommandExecutor {
 				sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.NoUpdate"));
 			} else {
 				sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.UpdateFound"));
+				sender.sendMessage(ChatColor.RED + this.plugin.getDescription().getVersion() + ChatColor.WHITE + " -> " + ChatColor.GREEN + version);
 			}
 		});
 		return true;
