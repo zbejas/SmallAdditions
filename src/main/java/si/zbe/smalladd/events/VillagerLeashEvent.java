@@ -28,7 +28,7 @@ public class VillagerLeashEvent implements Listener {
 		if (itemInHand.getType() != Material.LEAD)
 			return;
 		
-		
+		e.setCancelled(true);
 		
 		if (!v.isLeashed())
 			Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
