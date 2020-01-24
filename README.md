@@ -14,6 +14,8 @@ Command | Aliases | Usage | Premission
 
 ## How it works
 
+I just want to apologize for the bad gifs. When I'll have the time, I'll make proper gifs, in proper sizes.
+
 #### No crop trample
 By giving a player or group the permission _smalladd.notrample_, the player or group can't trample any of the crops.
 
@@ -30,6 +32,11 @@ By giving a player or group the permission _smalladd.crop.*_ (or any of the sepa
 By giving a player or group the permission _smalladd.workbech_, the player can use the _/portableworkbench_ (or _/pwb_) to rename the workbench in hand into "Portable Workbench". When the player right-click on that workbench, crafting menu opens.
 
 ![Gif broken (click)](https://imgur.com/igXaqTB.gif)
+
+#### Recipes
+Why craft planks and then chests, if you can craft chests directly from logs.
+
+![Gif broken (click)](https://i.imgur.com/cMGhs9D.gif)
 
 
 ## Permissions
