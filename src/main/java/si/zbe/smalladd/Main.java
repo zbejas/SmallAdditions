@@ -5,10 +5,12 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import si.zbe.smalladd.commands.AutoFeedCommand;
+import si.zbe.smalladd.commands.TorchCommand;
 import si.zbe.smalladd.commands.UpdateCommand;
 import si.zbe.smalladd.commands.WorkbenchCommand;
 import si.zbe.smalladd.events.CropEvent;
 import si.zbe.smalladd.events.FoodEvent;
+import si.zbe.smalladd.events.TorchEvent;
 import si.zbe.smalladd.events.TrampleEvent;
 import si.zbe.smalladd.events.UpdateEvent;
 import si.zbe.smalladd.events.VillagerDeathEvent;
@@ -49,12 +51,19 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
 		}
-
+		
 		// WORKBENCH
 		if (getConfig().getBoolean("Workbench")) {
 			getCommand("portableworkbench").setExecutor(new WorkbenchCommand(this));
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
+		}
+
+		// TORCH
+		if (getConfig().getBoolean("InfiniteTorch")) {
+			getCommand("infinitetorch").setExecutor(new TorchCommand(this));
+		} else {
+			getLogger().info(Messages.getString("SA.TorchDisabled"));
 		}
 
 		// UPDATE
@@ -92,17 +101,25 @@ public class Main extends JavaPlugin {
 		}
 
 		// VILLAGER DROPS
-		if (getConfig().getBoolean("VillagerAdditions.drops") && getConfig().getBoolean("VillagerAdditions")) {
+		if (getConfig().getBoolean("VillagerAdditions.drops")) {
 			getServer().getPluginManager().registerEvents(new VillagerDeathEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.VillagerDropsDisabled"));
 		}
-
+		
 		// VILLAGER LEASH
-		if (getConfig().getBoolean("VillagerAdditions.leash") && getConfig().getBoolean("VillagerAdditions")) {
+		if (getConfig().getBoolean("VillagerAdditions.leash")) {
 			getServer().getPluginManager().registerEvents(new VillagerLeashEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.VillagerLeashDisabled"));
+		}
+
+		// TORCH
+		if (getConfig().getBoolean("InfiniteTorch")) {
+			getServer().getPluginManager().registerEvents(new TorchEvent(), this);
+			getLogger().info(Messages.getString("SA.TorchWarning"));
+		} else {
+			getLogger().info(Messages.getString("SA.TorchDisabled"));
 		}
 
 		// UPDATE
@@ -114,6 +131,7 @@ public class Main extends JavaPlugin {
 		getConfig().addDefault("AutoFeed", true);
 		getConfig().addDefault("NoTrample", true);
 		getConfig().addDefault("Workbench", true);
+		getConfig().addDefault("InfiniteTorch", true);
 		getConfig().addDefault("VillagerAdditions", true);
 		getConfig().addDefault("VillagerAdditions.leash", true);
 		getConfig().addDefault("VillagerAdditions.drops", true);
