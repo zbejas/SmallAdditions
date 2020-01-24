@@ -21,7 +21,7 @@ By giving a player or group the permission _smalladd.notrample_, the player or g
 ---
 
 #### Crop harvest
-By giving a player or group the permission _smalladd.crops_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contains the seeds, the seed will be taken out of the drop and if the drops dont contain it, then the seed will be taken out of the players inventory. If players inventory doesn't contain any seeds, the crop wont be replanted.
+By giving a player or group the permission _smalladd.crop.*_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contain the seeds, the seed will be taken out of the drop and if the drops dont contain it, then the seed will be taken out of the players inventory. If players inventory doesn't contain any seeds, the crop wont be replanted.
 
 ![Gif broken (click)](https://imgur.com/Fo5feLo.gif)
 ---
@@ -39,13 +39,13 @@ Permissions | Usage
 smalladd.*| All permissions for this plugin.
 smalladd.admin | Currently only for update check.
 smalladd.autofeed | Enables auto-feed option
-smalladd.beetroot | Enables beetroot harvest.
-smalladd.carrot | Enables carrot harvest.
-smalladd.crops | Enables harvest function for all crops
-smalladd.netherwart | Enables nether wart harvest.
+smalladd.crop.* | Enables harvest function for all crops
+smalladd.crop.beetroot | Enables beetroot harvest.
+smalladd.crop.carrot | Enables carrot harvest.
+smalladd.crop.potato | Enables potato harvest.
+smalladd.crop.netherwart | Enables nether wart harvest.
+smalladd.crop.wheat | Enables wheat harvest.
 smalladd.notrample | Player with permission cant trapmle crops.
-smalladd.potato | Enables potato harvest.
-smalladd.wheat | Enables wheat harvest.
 smalladd.workbench | Enables portable workbench command and usage.
 
 ## Support the project
