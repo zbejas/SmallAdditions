@@ -14,10 +14,12 @@ import si.zbe.smalladd.events.UpdateEvent;
 import si.zbe.smalladd.events.VillagerDeathEvent;
 import si.zbe.smalladd.events.VillagerLeashEvent;
 import si.zbe.smalladd.events.WorkbenchEvent;
+import si.zbe.smalladd.recipes.ChestRecipe;
 
 public class Main extends JavaPlugin {
 
 	public static Main plugin;
+
 	@SuppressWarnings("unused")
 	@Override
 	public void onEnable() {
@@ -28,12 +30,14 @@ public class Main extends JavaPlugin {
 		updateCheck();
 		registerCommands();
 		registerEvents();
+		registerRecipes();
 		getLogger().info(Messages.getString("SA.SmallAdditionsEnabled"));
 	}
 
 	@Override
 	public void onDisable() {
 		getLogger().info(Messages.getString("SA.SmallAdditionsDisabled"));
+		plugin.getServer().resetRecipes();
 	}
 
 	private void registerCommands() {
@@ -45,18 +49,18 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
 		}
-		
+
 		// WORKBENCH
 		if (getConfig().getBoolean("Workbench")) {
 			getCommand("portableworkbench").setExecutor(new WorkbenchCommand(this));
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
-		
+
 		// UPDATE
 		getCommand("saupdate").setExecutor(new UpdateCommand(this));
 	}
-	
+
 	private void registerEvents() {
 		// CROPS
 		if (getConfig().getBoolean("Crops")) {
@@ -64,7 +68,7 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.CropsDisabled"));
 		}
-		
+
 		// AUTOFEED
 		if (getConfig().getBoolean("AutoFeed")) {
 			getServer().getPluginManager().registerEvents(new FoodEvent(), this);
@@ -72,35 +76,35 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
 		}
-		
+
 		// NOTRAMPLE
 		if (getConfig().getBoolean("NoTrample")) {
 			getServer().getPluginManager().registerEvents(new TrampleEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.NoTrampleDisabled"));
 		}
-		
+
 		// WORKBENCH
 		if (getConfig().getBoolean("Workbench")) {
 			getServer().getPluginManager().registerEvents(new WorkbenchEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
-		
+
 		// VILLAGER DROPS
-		if (getConfig().getBoolean("VillagerDrops")) {
+		if (getConfig().getBoolean("VillagerAdditions.drops") && getConfig().getBoolean("VillagerAdditions")) {
 			getServer().getPluginManager().registerEvents(new VillagerDeathEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.VillagerDropsDisabled"));
 		}
-		
+
 		// VILLAGER LEASH
-		if (getConfig().getBoolean("VillagerLeash")) {
+		if (getConfig().getBoolean("VillagerAdditions.leash") && getConfig().getBoolean("VillagerAdditions")) {
 			getServer().getPluginManager().registerEvents(new VillagerLeashEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.VillagerLeashDisabled"));
 		}
-		
+
 		// UPDATE
 		getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
 	}
@@ -110,8 +114,11 @@ public class Main extends JavaPlugin {
 		getConfig().addDefault("AutoFeed", true);
 		getConfig().addDefault("NoTrample", true);
 		getConfig().addDefault("Workbench", true);
-		getConfig().addDefault("VillagerDrops", true);
-		getConfig().addDefault("VillagerLeash", true);
+		getConfig().addDefault("VillagerAdditions", true);
+		getConfig().addDefault("VillagerAdditions.leash", true);
+		getConfig().addDefault("VillagerAdditions.drops", true);
+		getConfig().addDefault("CustomRecipes", true);
+		getConfig().addDefault("CustomRecipes.chest", true);
 		getConfig().addDefault("Language", "english");
 		getConfig().options().copyDefaults(true);
 		saveConfig();
@@ -127,5 +134,17 @@ public class Main extends JavaPlugin {
 				getLogger().info(Messages.getString("SA.UpdateFound") + " [" + version + "]");
 			}
 		});
+	}
+
+	private void registerRecipes() {
+		if (getConfig().getBoolean("CustomRecipes")) {
+			getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
+			return;
+		}
+
+		if (getConfig().getBoolean("CustomRecipes.chest")) {
+			ChestRecipe chest = new ChestRecipe();
+			plugin.getServer().addRecipe(chest.createRecipe());
+		}
 	}
 }
