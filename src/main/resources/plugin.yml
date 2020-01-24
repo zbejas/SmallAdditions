@@ -13,6 +13,10 @@ commands:
       description: Sets name to 'Portable Workbench'.
       usage: /<command>
       aliases: pwb
+   infinitetorch:
+      description: Sets name to 'Portable Workbench'.
+      usage: /<command>
+      aliases: it
    saupdate:
       description: Checks for updates.
       usage: /<command>
@@ -36,6 +40,9 @@ permissions:
     default: false
   smalladd.workbench:
     description: 'Allows you to open portable workbench.'
+    default: false
+  smalladd.torch:
+    description: 'Allows you to have an infinite torch.'
     default: false
   smalladd.autofeed:
     description: 'Allows you to get fed from items in your inventory.'
