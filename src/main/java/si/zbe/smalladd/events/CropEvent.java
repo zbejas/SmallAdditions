@@ -73,7 +73,7 @@ public class CropEvent implements Listener {
 	public void harvestCrop(Material m, PlayerInteractEvent e) {
 		Block block = e.getClickedBlock();
 		if (isCrop(m)) {
-			if (!e.getPlayer().hasPermission("smalladd." + getCropPerm(m))) {
+			if (!e.getPlayer().hasPermission("smalladd.crop." + getCropPerm(m))) {
 				return;
 			}
 
