@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import si.zbe.smalladd.Main;
@@ -18,8 +19,10 @@ public class UpdateCommand implements CommandExecutor {
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if (!sender.hasPermission("smalladd.admin"))
+		if (!sender.hasPermission("smalladd.admin")) {
+			sender.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return true;
+		}
 		if (args.length > 0) {
 			sender.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
 			return true;
@@ -28,8 +31,13 @@ public class UpdateCommand implements CommandExecutor {
 			if (this.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
 				sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.NoUpdate"));
 			} else {
-				sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.UpdateFound"));
-				sender.sendMessage(ChatColor.RED + this.plugin.getDescription().getVersion() + ChatColor.WHITE + " -> " + ChatColor.GREEN + version);
+				if (sender instanceof Player) {
+					sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.UpdateFound"));
+					sender.sendMessage(ChatColor.RED + this.plugin.getDescription().getVersion() + ChatColor.WHITE + " -> " + ChatColor.GREEN + version);
+				} else {
+					sender.sendMessage(Messages.getString("SA.UpdateFound"));
+					sender.sendMessage(this.plugin.getDescription().getVersion() + " -> " + version);
+				}
 			}
 		});
 		return true;
