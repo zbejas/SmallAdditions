@@ -36,7 +36,7 @@ By giving a player or group the permission _smalladd.workbech_, the player can u
 
 Permissions | Usage
 --- | ---
-smalladd.*| All permissions for this plugin.
+smalladd.* | All permissions for this plugin.
 smalladd.admin | Currently only for update check.
 smalladd.autofeed | Enables auto-feed option
 smalladd.crop.* | Enables harvest function for all crops
