@@ -124,7 +124,7 @@ public class Main extends JavaPlugin {
 			if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
 				getLogger().info(Messages.getString("SA.NoUpdate"));
 			} else {
-				getLogger().info(Messages.getString("SA.UpdateFound"));
+				getLogger().info(Messages.getString("SA.UpdateFound") + " [" + version + "]");
 			}
 		});
 	}
