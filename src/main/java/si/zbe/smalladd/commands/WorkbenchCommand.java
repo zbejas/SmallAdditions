@@ -1,5 +1,7 @@
 package si.zbe.smalladd.commands;
 
+import java.util.ArrayList;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -20,7 +22,6 @@ public class WorkbenchCommand implements CommandExecutor {
 		this.plugin = plugin;
 	}
 
-	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + Messages.getString("SA.NotAPlayer"));
@@ -39,10 +40,14 @@ public class WorkbenchCommand implements CommandExecutor {
 			return true;
 		}
 		
-		if (p.getItemInHand().getType() == Material.CRAFTING_TABLE) {
-			ItemStack item = p.getItemInHand();
+		if (p.getInventory().getItemInMainHand().getType() == Material.CRAFTING_TABLE) {
+			ItemStack item = p.getInventory().getItemInMainHand();
 			ItemMeta itemmeta = item.getItemMeta();
-			itemmeta.setDisplayName("Portable Workbench");
+			ArrayList<String> lore = new ArrayList<String>();
+			lore.add(ChatColor.RED + "Right-click anywhere to open " + ChatColor.GOLD + "Portable Workbench");
+			lore.add(ChatColor.GOLD + "Owner: " + ChatColor.GREEN + p.getName());
+			itemmeta.setDisplayName(ChatColor.GOLD + "Portable Workbench");
+			itemmeta.setLore(lore);
 			item.setItemMeta(itemmeta);
 			p.sendMessage(ChatColor.GREEN + Messages.getString("SA.WorkbenchNameChanged"));
 			return true;
