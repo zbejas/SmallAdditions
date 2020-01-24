@@ -16,9 +16,11 @@ public class UpdateEvent implements Listener {
 		if (!e.getPlayer().hasPermission("smalladd.admin"))
 			return;
 		(new UpdateChecker((Plugin) Main.plugin, 74452)).getVersion(version -> {
-			if (!Main.plugin.getDescription().getVersion().equalsIgnoreCase(version))
-				e.getPlayer().sendMessage(ChatColor.GREEN + "[SmallAdditions] " + Messages.getString("SA.UpdateFound"));
-			else
+			if (!Main.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+				e.getPlayer().sendMessage(ChatColor.GREEN + Messages.getString("SA.UpdateFound"));
+				e.getPlayer().sendMessage(ChatColor.RED + Main.plugin.getDescription().getVersion() + ChatColor.WHITE
+						+ " -> " + ChatColor.GREEN + version);
+			} else
 				return;
 		});
 	}
