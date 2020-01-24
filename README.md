@@ -14,7 +14,7 @@ Command | Aliases | Usage | Premission
 
 ## How it works
 
-I just want to apologize for the bad gifs. When I'll have the time, I'll make proper gifs, in proper sizes.
+_I just want to apologize for the bad gifs. When I'll have the time, I'll make proper gifs, in proper sizes._
 
 #### No crop trample
 By giving a player or group the permission _smalladd.notrample_, the player or group can't trample any of the crops.
