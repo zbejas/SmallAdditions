@@ -42,18 +42,18 @@ public class TorchEvent implements Listener {
 					@Override
 					public void run() {
 						p.getInventory().setItemInMainHand(item);
+						p.updateInventory();
 					}
 				}, 1L);
-				p.updateInventory();
 				return;
 			} else if (itemInOffHand.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Infinite Torch")) {
 				Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
 					@Override
 					public void run() {
 						p.getInventory().setItemInOffHand(item);
+						p.updateInventory();
 					}
 				}, 1L);
-				p.updateInventory();
 				return;
 			}
 		}
