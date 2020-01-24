@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,6 +26,9 @@ public class VillagerDeathEvent implements Listener {
 				e.getDrops().add(is);
 			}
 		}
+		
+		if (v.getKiller() instanceof Player)
+			e.setDroppedExp(v.getVillagerExperience());
 		
 		int dropchance = rand.nextInt(10);
 		if (dropchance >= 0  && dropchance < 3)
