@@ -10,6 +10,7 @@ Command | Aliases | Usage | Premission
 --- | --- | --- | ----
 /autofeed <Food option> | /af | Player selects food that is then fed to the player. | smalladd.autofeed
 /portableworkbench | /pwb | Sets item name to 'Portable Workbench'. | smalladd.workbench
+ /infinitetorch | /it | Sets item name to 'Infinite Torch'. | smalladd.torch
  /saupdate | /sau | Check for updates. | smalladd.admin
 
 ## How it works
@@ -53,6 +54,7 @@ smalladd.crop.potato | Enables potato harvest.
 smalladd.crop.netherwart | Enables nether wart harvest.
 smalladd.crop.wheat | Enables wheat harvest.
 smalladd.notrample | Player with permission cant trapmle crops.
+smalladd.torch | Enables infinite torch command and usage.
 smalladd.workbench | Enables portable workbench command and usage.
 
 ## Support the project
