@@ -21,7 +21,7 @@ permissions:
   smalladd.*:
     description: 'Gives access to all SmallAdditions features.'
     children:
-      smalladd.crops: true
+      smalladd.crop.*: true
       smalladd.autofeed: true
       smalladd.notrample: true
       smalladd.workbench: true
@@ -42,27 +42,27 @@ permissions:
   smalladd.notrample:
     description: 'Prevents player from trampling crops.'
     default: op
-  smalladd.crops:
+  smalladd.crop.*:
     description: 'Allows you to easily pick up and replant crops.'
     default: op
     children:
-      smalladd.wheat: true
-      smalladd.potato: true
-      smalladd.carrot: true
-      smalladd.beetroot: true
-      smalladd.netherwart: true
-  smalladd.wheat:
+      smalladd.crop.wheat: true
+      smalladd.crop.potato: true
+      smalladd.crop.carrot: true
+      smalladd.crop.beetroot: true
+      smalladd.crop.netherwart: true
+  smalladd.crop.wheat:
     description: 'Allows you to easily pick up and replant wheat.'
     default: op
-  smalladd.potato:
+  smalladd.crop.potato:
     description: 'Allows you to easily pick up and replant potatoes.'
     default: op
-  smalladd.carrot:
+  smalladd.crop.carrot:
     description: 'Allows you to easily pick up and replant carrots.'
     default: op
-  smalladd.beetroot:
+  smalladd.crop.beetroot:
     description: 'Allows you to easily pick up and replant beetroots.'
     default: op
-  smalladd.netherwart:
+  smalladd.crop.netherwart:
     description: 'Allows you to easily pick up and replant beetroots.'
     default: op
