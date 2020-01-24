@@ -64,5 +64,5 @@ permissions:
     description: 'Allows you to easily pick up and replant beetroots.'
     default: op
   smalladd.crop.netherwart:
-    description: 'Allows you to easily pick up and replant beetroots.'
+    description: 'Allows you to easily pick up and replant nether warts.'
     default: op
