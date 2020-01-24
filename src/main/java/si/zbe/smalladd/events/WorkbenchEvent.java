@@ -1,5 +1,6 @@
 package si.zbe.smalladd.events;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,10 +24,11 @@ public class WorkbenchEvent implements Listener {
 				if (itemInHand.getItemMeta() == null && itemInOffHand.getItemMeta() == null) 
 					return;
 				
-                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench") && !itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase("Portable Workbench"))
+                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench") && !itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench"))
                     return;
                 
                 p.openWorkbench(null, true);
+                p.updateInventory();
                 e.setCancelled(true);
             }
         }
