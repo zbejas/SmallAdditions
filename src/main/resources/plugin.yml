@@ -20,6 +20,7 @@ commands:
 permissions:
   smalladd.*:
     description: 'Gives access to all SmallAdditions features.'
+    default: op
     children:
       smalladd.crop.*: true
       smalladd.autofeed: true
@@ -29,22 +30,22 @@ permissions:
       smalladd.villagerleash: true
   smalladd.admin:
     description: 'Allows you to check for updates.'
-    default: op
+    default: false
   smalladd.villagerleash:
     description: 'Allows you to leash a villager.'
-    default: op
+    default: false
   smalladd.workbench:
     description: 'Allows you to open portable workbench.'
-    default: op
+    default: false
   smalladd.autofeed:
     description: 'Allows you to get fed from items in your inventory.'
-    default: op
+    default: false
   smalladd.notrample:
     description: 'Prevents player from trampling crops.'
-    default: op
+    default: false
   smalladd.crop.*:
     description: 'Allows you to easily pick up and replant crops.'
-    default: op
+    default: false
     children:
       smalladd.crop.wheat: true
       smalladd.crop.potato: true
@@ -53,16 +54,16 @@ permissions:
       smalladd.crop.netherwart: true
   smalladd.crop.wheat:
     description: 'Allows you to easily pick up and replant wheat.'
-    default: op
+    default: false
   smalladd.crop.potato:
     description: 'Allows you to easily pick up and replant potatoes.'
-    default: op
+    default: false
   smalladd.crop.carrot:
     description: 'Allows you to easily pick up and replant carrots.'
-    default: op
+    default: false
   smalladd.crop.beetroot:
     description: 'Allows you to easily pick up and replant beetroots.'
-    default: op
+    default: false
   smalladd.crop.netherwart:
     description: 'Allows you to easily pick up and replant nether warts.'
-    default: op
+    default: false
