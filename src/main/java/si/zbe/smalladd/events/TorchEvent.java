@@ -21,7 +21,7 @@ public class TorchEvent implements Listener {
 		Player p = e.getPlayer();
 		final ItemStack itemInHand = p.getInventory().getItemInMainHand();
 		final ItemStack itemInOffHand = p.getInventory().getItemInOffHand();
-		if (!p.hasPermission("smalladd.torch"))
+		if (!p.hasPermission("smalladd.tool.torch"))
 			return;
 		
 		if (itemInHand.getType() != Material.TORCH && itemInOffHand.getType() != Material.TORCH)
