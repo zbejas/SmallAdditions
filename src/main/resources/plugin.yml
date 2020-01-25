@@ -29,20 +29,29 @@ permissions:
       smalladd.crop.*: true
       smalladd.autofeed: true
       smalladd.notrample: true
-      smalladd.workbench: true
       smalladd.admin: true
       smalladd.villagerleash: true
+      smalladd.tool.*: true
   smalladd.admin:
     description: 'Allows you to check for updates.'
     default: false
+  smalladd.tool.*:
+     description: 'Usage of all tools this plugin offers'
+     children:
+        smalladd.tool.workbench: true
+        smalladd.tool.torch: true
+        smalladd.tool.hoe: true
   smalladd.villagerleash:
     description: 'Allows you to leash a villager.'
     default: false
-  smalladd.workbench:
+  smalladd.tool.workbench:
     description: 'Allows you to open portable workbench.'
     default: false
-  smalladd.torch:
+  smalladd.tool.torch:
     description: 'Allows you to have an infinite torch.'
+    default: false
+  smalladd.tool.hoe:
+    description: 'Allows you to use improved hoes.'
     default: false
   smalladd.autofeed:
     description: 'Allows you to get fed from items in your inventory.'
