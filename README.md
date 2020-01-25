@@ -30,7 +30,7 @@ By giving a player or group the permission _smalladd.crop.*_ (or any of the sepa
 ---
 
 #### Workbench
-By giving a player or group the permission _smalladd.workbech_, the player can use the _/portableworkbench_ (or _/pwb_) to rename the workbench in hand into "Portable Workbench". When the player right-click on that workbench, crafting menu opens.
+By giving a player or group the permission _smalladd.tool.workbech_, the player can use the _/portableworkbench_ (or _/pwb_) to rename the workbench in hand into "Portable Workbench". When the player right-click on that workbench, crafting menu opens.
 
 ![Gif broken (click)](https://imgur.com/igXaqTB.gif)
 
