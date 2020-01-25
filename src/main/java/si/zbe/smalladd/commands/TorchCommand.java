@@ -30,7 +30,7 @@ public class TorchCommand implements CommandExecutor {
 
 		Player p = (Player) sender;
 		
-		if (!p.hasPermission("smalladd.torch")) {
+		if (!p.hasPermission("smalladd.tool.torch")) {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return true;
 		}
