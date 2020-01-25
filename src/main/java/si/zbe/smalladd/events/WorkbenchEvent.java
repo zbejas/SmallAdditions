@@ -13,7 +13,7 @@ public class WorkbenchEvent implements Listener {
     @EventHandler
     public void onRightClick(PlayerInteractEvent e) {
         Player p = e.getPlayer();
-        if (!p.hasPermission("smalladd.workbench"))
+        if (!p.hasPermission("smalladd.tool.workbench"))
             return;
 
         if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
