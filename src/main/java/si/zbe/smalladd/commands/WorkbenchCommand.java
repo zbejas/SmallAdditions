@@ -30,7 +30,7 @@ public class WorkbenchCommand implements CommandExecutor {
 
 		Player p = (Player) sender;
 		
-		if (!p.hasPermission("smalladd.workbench")) {
+		if (!p.hasPermission("smalladd.tool.workbench")) {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return true;
 		}
