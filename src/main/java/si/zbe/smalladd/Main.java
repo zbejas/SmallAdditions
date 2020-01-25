@@ -10,6 +10,7 @@ import si.zbe.smalladd.commands.UpdateCommand;
 import si.zbe.smalladd.commands.WorkbenchCommand;
 import si.zbe.smalladd.events.CropEvent;
 import si.zbe.smalladd.events.FoodEvent;
+import si.zbe.smalladd.events.HoeEvent;
 import si.zbe.smalladd.events.TorchEvent;
 import si.zbe.smalladd.events.TrampleEvent;
 import si.zbe.smalladd.events.UpdateEvent;
@@ -51,16 +52,16 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
 		}
-		
+
 		// WORKBENCH
-		if (getConfig().getBoolean("Workbench")) {
+		if (getConfig().getBoolean("Tools.Workbench")) {
 			getCommand("portableworkbench").setExecutor(new WorkbenchCommand(this));
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
 
 		// TORCH
-		if (getConfig().getBoolean("InfiniteTorch")) {
+		if (getConfig().getBoolean("Tools.InfiniteTorch")) {
 			getCommand("infinitetorch").setExecutor(new TorchCommand(this));
 		} else {
 			getLogger().info(Messages.getString("SA.TorchDisabled"));
@@ -94,32 +95,39 @@ public class Main extends JavaPlugin {
 		}
 
 		// WORKBENCH
-		if (getConfig().getBoolean("Workbench")) {
+		if (getConfig().getBoolean("Tools.Workbench")) {
 			getServer().getPluginManager().registerEvents(new WorkbenchEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
 		}
 
 		// VILLAGER DROPS
-		if (getConfig().getBoolean("VillagerAdditions.drops")) {
+		if (getConfig().getBoolean("VillagerAdditions.Drops")) {
 			getServer().getPluginManager().registerEvents(new VillagerDeathEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.VillagerDropsDisabled"));
 		}
-		
+
 		// VILLAGER LEASH
-		if (getConfig().getBoolean("VillagerAdditions.leash")) {
+		if (getConfig().getBoolean("VillagerAdditions.Leash")) {
 			getServer().getPluginManager().registerEvents(new VillagerLeashEvent(), this);
 		} else {
 			getLogger().info(Messages.getString("SA.VillagerLeashDisabled"));
 		}
 
 		// TORCH
-		if (getConfig().getBoolean("InfiniteTorch")) {
+		if (getConfig().getBoolean("Tools.InfiniteTorch")) {
 			getServer().getPluginManager().registerEvents(new TorchEvent(), this);
 			getLogger().info(Messages.getString("SA.TorchWarning"));
 		} else {
 			getLogger().info(Messages.getString("SA.TorchDisabled"));
+		}
+
+		// HOE
+		if (getConfig().getBoolean("Tools.BetterHoes")) {
+			getServer().getPluginManager().registerEvents(new HoeEvent(), this);
+		} else {
+			getLogger().info(Messages.getString("SA.HoesDisabled"));
 		}
 
 		// UPDATE
@@ -130,13 +138,14 @@ public class Main extends JavaPlugin {
 		getConfig().addDefault("Crops", true);
 		getConfig().addDefault("AutoFeed", true);
 		getConfig().addDefault("NoTrample", true);
-		getConfig().addDefault("Workbench", true);
-		getConfig().addDefault("InfiniteTorch", true);
+		getConfig().addDefault("Tools.Workbench", true);
+		getConfig().addDefault("Tools.BetterHoes", true);
+		getConfig().addDefault("Tools.InfiniteTorch", true);
 		getConfig().addDefault("VillagerAdditions", true);
-		getConfig().addDefault("VillagerAdditions.leash", true);
-		getConfig().addDefault("VillagerAdditions.drops", true);
+		getConfig().addDefault("VillagerAdditions.Leash", true);
+		getConfig().addDefault("VillagerAdditions.Drops", true);
 		getConfig().addDefault("CustomRecipes", true);
-		getConfig().addDefault("CustomRecipes.chest", true);
+		getConfig().addDefault("CustomRecipes.Chest", true);
 		getConfig().addDefault("Language", "english");
 		getConfig().options().copyDefaults(true);
 		saveConfig();
@@ -155,14 +164,12 @@ public class Main extends JavaPlugin {
 	}
 
 	private void registerRecipes() {
-		if (getConfig().getBoolean("CustomRecipes")) {
-			getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
-			return;
-		}
 
-		if (getConfig().getBoolean("CustomRecipes.chest")) {
+		if (getConfig().getBoolean("CustomRecipes.Chest")) {
 			ChestRecipe chest = new ChestRecipe();
 			plugin.getServer().addRecipe(chest.createRecipe());
+		} else {
+			getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
 		}
 	}
 }
