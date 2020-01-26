@@ -1,10 +1,10 @@
 package si.zbe.smalladd;
 
 import org.bstats.bukkit.Metrics;
-import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import si.zbe.smalladd.commands.AutoFeedCommand;
+import si.zbe.smalladd.commands.DisabledCommand;
 import si.zbe.smalladd.commands.TorchCommand;
 import si.zbe.smalladd.commands.UpdateCommand;
 import si.zbe.smalladd.commands.WorkbenchCommand;
@@ -46,25 +46,27 @@ public class Main extends JavaPlugin {
 	private void registerCommands() {
 		// AUTOFEED
 		if (getConfig().getBoolean("AutoFeed")) {
-			final PluginCommand autofeed = getCommand("autofeed");
-			autofeed.setExecutor(new AutoFeedCommand(this));
-			autofeed.setTabCompleter(new AutoFeedCommand(this));
+			getCommand("autofeed").setExecutor(new AutoFeedCommand(this));
+			getCommand("autofeed").setTabCompleter(new AutoFeedCommand(this));
 		} else {
-			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
+			//getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
+			getCommand("autofeed").setExecutor(new DisabledCommand(this));
 		}
 
 		// WORKBENCH
 		if (getConfig().getBoolean("Tools.Workbench")) {
 			getCommand("portableworkbench").setExecutor(new WorkbenchCommand(this));
 		} else {
-			getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
+			//getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
+			getCommand("portableworkbench").setExecutor(new DisabledCommand(this));
 		}
 
 		// TORCH
 		if (getConfig().getBoolean("Tools.InfiniteTorch")) {
 			getCommand("infinitetorch").setExecutor(new TorchCommand(this));
 		} else {
-			getLogger().info(Messages.getString("SA.TorchDisabled"));
+			//getLogger().info(Messages.getString("SA.TorchDisabled"));
+			getCommand("infinitetorch").setExecutor(new DisabledCommand(this));
 		}
 
 		// UPDATE
