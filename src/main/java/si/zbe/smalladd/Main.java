@@ -9,8 +9,10 @@ import si.zbe.smalladd.commands.TorchCommand;
 import si.zbe.smalladd.commands.UpdateCommand;
 import si.zbe.smalladd.commands.WorkbenchCommand;
 import si.zbe.smalladd.events.CropEvent;
+import si.zbe.smalladd.events.DeathEvent;
 import si.zbe.smalladd.events.FoodEvent;
 import si.zbe.smalladd.events.HoeEvent;
+import si.zbe.smalladd.events.SpawnerEvent;
 import si.zbe.smalladd.events.TorchEvent;
 import si.zbe.smalladd.events.TrampleEvent;
 import si.zbe.smalladd.events.UpdateEvent;
@@ -131,7 +133,21 @@ public class Main extends JavaPlugin {
 		} else {
 			getLogger().info(Messages.getString("SA.HoesDisabled"));
 		}
-
+		
+		// SPAWNER
+		if (getConfig().getBoolean("MineSpawners")) {
+			getServer().getPluginManager().registerEvents(new SpawnerEvent(), this);
+		} else {
+			getLogger().info(Messages.getString("SA.SpawnerDisabled"));
+		}
+		
+		// TOTEM
+		if (getConfig().getBoolean("Tools.TotemInInv")) {
+			getServer().getPluginManager().registerEvents(new DeathEvent(), this);
+		} else {
+			getLogger().info(Messages.getString("SA.TotemDisabled"));
+		}
+		
 		// UPDATE
 		getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
 	}
@@ -140,9 +156,11 @@ public class Main extends JavaPlugin {
 		getConfig().addDefault("Crops", true);
 		getConfig().addDefault("AutoFeed", true);
 		getConfig().addDefault("NoTrample", true);
+		getConfig().addDefault("MineSpawners", true);
 		getConfig().addDefault("Tools.Workbench", true);
 		getConfig().addDefault("Tools.BetterHoes", true);
 		getConfig().addDefault("Tools.InfiniteTorch", true);
+		getConfig().addDefault("Tools.TotemInInv", true);
 		getConfig().addDefault("VillagerAdditions", true);
 		getConfig().addDefault("VillagerAdditions.Leash", true);
 		getConfig().addDefault("VillagerAdditions.Drops", true);
