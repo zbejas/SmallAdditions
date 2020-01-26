@@ -36,6 +36,9 @@ public class TorchEvent implements Listener {
 			itemmeta.setDisplayName(ChatColor.GOLD + "Infinite Torch");
 			itemmeta.setLore(lore);
 			item.setItemMeta(itemmeta);
+			
+			if (itemInHand.getItemMeta() == null && itemInOffHand.getItemMeta() == null) 
+				return;
 
 			if (itemInHand.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Infinite Torch")) {
 				Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
