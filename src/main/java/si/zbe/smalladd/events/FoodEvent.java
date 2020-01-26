@@ -29,22 +29,24 @@ public class FoodEvent implements Listener {
 				p.getInventory().removeItem(new ItemStack(mat, 1));
 			}
 		} else if (e.getFoodLevel() < 20 && p.getHealth() < 20.0D) {
-			int counter = 0;
-			while (e.getFoodLevel() < 20) {
-				if (e.getFoodLevel() + getNutritionValue(mat) < 20) {
-					e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
-					p.setSaturation((float) getSaturationValue(mat));
-				} else {
-					e.setFoodLevel(20);
-					p.setSaturation((float) getSaturationValue(mat));
+			if (p.getInventory().containsAtLeast(new ItemStack(mat), 1)) {
+				int counter = 0;
+				while (e.getFoodLevel() < 20) {
+					if (e.getFoodLevel() + getNutritionValue(mat) < 20) {
+						e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
+						p.setSaturation((float) getSaturationValue(mat));
+					} else {
+						e.setFoodLevel(20);
+						p.setSaturation((float) getSaturationValue(mat));
+					}
+					p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
+					p.getInventory().removeItem(new ItemStack(mat, 1));
+					counter++;
 				}
-				p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 10, 1);
-				p.getInventory().removeItem(new ItemStack(mat, 1));
-				counter++;
+				if (counter != 1)
+					p.sendMessage(ChatColor.GREEN + "[AutoFeed] " + Messages.getString("SA.RapidFeed1") + " " + counter
+							+ " " + Messages.getString("SA.RapidFeed2"));
 			}
-			if (counter != 1)
-				p.sendMessage(ChatColor.GREEN + "[AutoFeed] " + Messages.getString("SA.RapidFeed1") + " " + counter
-						+ " " + Messages.getString("SA.RapidFeed2"));
 		} else if (e.getFoodLevel() + getNutritionValue(mat) == 20) {
 			e.setFoodLevel(e.getFoodLevel() + getNutritionValue(mat));
 			p.setSaturation((float) getSaturationValue(mat));
