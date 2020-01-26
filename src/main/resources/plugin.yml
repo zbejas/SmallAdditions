@@ -32,6 +32,7 @@ permissions:
       smalladd.admin: true
       smalladd.villagerleash: true
       smalladd.tool.*: true
+      smalladd.spawner: true
   smalladd.admin:
     description: 'Allows you to check for updates.'
     default: false
@@ -43,6 +44,9 @@ permissions:
         smalladd.tool.hoe: true
   smalladd.villagerleash:
     description: 'Allows you to leash a villager.'
+    default: false
+  smalladd.spawner:
+    description: 'Allows you to mine spawners.'
     default: false
   smalladd.tool.workbench:
     description: 'Allows you to open portable workbench.'
