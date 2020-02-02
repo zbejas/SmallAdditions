@@ -5,7 +5,7 @@
 
 	<groupId>si.zbe</groupId>
 	<artifactId>SmallAdditions</artifactId>
-	<version>1.4.0</version>
+	<version>1.4.1</version>
 	<packaging>jar</packaging>
 
 	<name>SmallAdditions</name>
@@ -38,6 +38,7 @@
 			<artifactId>craftbukkit</artifactId>
 			<version>1.15.2</version>
 			<scope>system</scope>
+			<!--suppress MavenModelInspection -->
 			<systemPath>D:\Projects\Eclipse\Workspace\craftbukkit-1.15.2.jar</systemPath>
 		</dependency>
 		<dependency>
