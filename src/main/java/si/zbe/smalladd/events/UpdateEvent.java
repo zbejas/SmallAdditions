@@ -15,6 +15,10 @@ public class UpdateEvent implements Listener {
 	public void onJoin(PlayerJoinEvent e) {
 		if (!e.getPlayer().hasPermission("smalladd.admin"))
 			return;
+
+		if (!Main.plugin.getConfig().getBoolean("JoinNotification"))
+			return;
+
 		(new UpdateChecker((Plugin) Main.plugin, 74452)).getVersion(version -> {
 			if (!Main.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
 				e.getPlayer().sendMessage(ChatColor.GREEN + "[SmallAdditions] " + Messages.getString("SA.UpdateFound"));
