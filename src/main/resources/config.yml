@@ -1,0 +1,23 @@
+Crops: true
+AutoFeed: true
+NoTrample: true
+MineSpawners: true
+BannedSpawners:
+  - Pig
+  - Cow
+  - Villager
+Tools:
+  Workbench: true
+  BetterHoes: false
+  InfiniteTorch: true
+  TotemInInv: true
+VillagerAdditions:
+  Leash: true
+  Drops: true
+  EmeraldDropChance:
+    Drop: 2
+    DropChance: 30
+    Randomize: true
+CustomRecipes:
+  Chest: true
+Language: english
