@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
+import si.zbe.smalladd.Main;
 
 public class VillagerDeathEvent implements Listener {
 	@EventHandler
@@ -30,13 +31,16 @@ public class VillagerDeathEvent implements Listener {
 		if (v.getKiller() instanceof Player)
 			e.setDroppedExp(v.getVillagerExperience());
 		
-		int dropchance = rand.nextInt(10);
-		if (dropchance >= 0  && dropchance < 3)
-			e.getDrops().add(new ItemStack(Material.EMERALD, 2));
-		else if (dropchance >= 3 && dropchance < 7)
-			e.getDrops().add(new ItemStack(Material.EMERALD, 1));
+		int dropchance = rand.nextInt(100) + 1;
+		int drop = Main.plugin.getConfig().getInt("VillagerAdditions.EmeraldDropChance.Drop");
+		int minusdrop = rand.nextInt(drop);
+
+		if (dropchance <= Main.plugin.getConfig().getInt("VillagerAdditions.EmeraldDropChance.DropChance"))
+			if (Main.plugin.getConfig().getBoolean("VillagerAdditions.EmeraldDropChance.Randomize"))
+				e.getDrops().add(new ItemStack(Material.EMERALD, drop - minusdrop));
+			else
+				e.getDrops().add(new ItemStack(Material.EMERALD, drop));
 		else
 			return;
-		
 	}
 }
