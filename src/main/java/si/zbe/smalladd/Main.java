@@ -2,30 +2,14 @@ package si.zbe.smalladd;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import si.zbe.smalladd.commands.AutoFeedCommand;
-import si.zbe.smalladd.commands.DisabledCommand;
-import si.zbe.smalladd.commands.TorchCommand;
-import si.zbe.smalladd.commands.UpdateCommand;
-import si.zbe.smalladd.commands.WorkbenchCommand;
-import si.zbe.smalladd.events.CropEvent;
-import si.zbe.smalladd.events.DeathEvent;
-import si.zbe.smalladd.events.FoodEvent;
-import si.zbe.smalladd.events.HoeEvent;
-import si.zbe.smalladd.events.SpawnerEvent;
-import si.zbe.smalladd.events.TorchEvent;
-import si.zbe.smalladd.events.TrampleEvent;
-import si.zbe.smalladd.events.UpdateEvent;
-import si.zbe.smalladd.events.VillagerDeathEvent;
-import si.zbe.smalladd.events.VillagerLeashEvent;
-import si.zbe.smalladd.events.WorkbenchEvent;
+import si.zbe.smalladd.commands.*;
+import si.zbe.smalladd.events.*;
 import si.zbe.smalladd.recipes.ChestRecipe;
 
 public class Main extends JavaPlugin {
 
 	public static Main plugin;
 
-	@SuppressWarnings("unused")
 	@Override
 	public void onEnable() {
 		plugin = this;
