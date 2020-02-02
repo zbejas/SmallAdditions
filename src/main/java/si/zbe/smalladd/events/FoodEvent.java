@@ -11,14 +11,14 @@ import org.bukkit.inventory.ItemStack;
 
 import si.zbe.smalladd.Messages;
 import si.zbe.smalladd.commands.AutoFeedCommand;
-import si.zbe.smalladd.utils.Utils;
+import si.zbe.smalladd.utils.TitleManager;
 
 public class FoodEvent implements Listener {
 	public void eatFood(Material mat, Player p, FoodLevelChangeEvent e) {
 		if (!p.getInventory().containsAtLeast(new ItemStack(mat), 16)) {
 			//p.sendMessage(ChatColor.DARK_GREEN + "[AutoFeed] " + Messages.getString("SA.AutoFeedLowFood"));
-			Utils u = new Utils();
-			u.sendTitleActionBar(p, ChatColor.DARK_RED + Messages.getString("SA.AutoFeedLowFood"));
+			TitleManager tm = new TitleManager();
+			tm.sendTitleActionBar(p, ChatColor.DARK_RED + Messages.getString("SA.AutoFeedLowFood"), 40, 100, 40);
 		}
 		if (e.getFoodLevel() < 15 && getNutritionValue(mat) < 6) {
 			if (p.getInventory().containsAtLeast(new ItemStack(mat), 1)) {
