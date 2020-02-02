@@ -12,31 +12,23 @@ public class Messages {
      *  language_fr.properties
      */
     private static final String BUNDLE_EN = "si.zbe.languages.english";
-    private static final String BUNDLE_SLO = "si.zbe.languages.slovene";
     private static final ResourceBundle RESOURCE_EN = ResourceBundle.getBundle(BUNDLE_EN);
-    private static final ResourceBundle RESOURCE_SLO = ResourceBundle.getBundle(BUNDLE_SLO);
 
     public static String getString(String key) {
         final String language = Main.plugin.getConfig().getString("Language");
-        
+
         if (language.equalsIgnoreCase("english"))
             try {
                 return RESOURCE_EN.getString(key);
             } catch (MissingResourceException e) {
                 return "!" + key + "!";
             }
-        else if (language.equalsIgnoreCase("slovene")) {
+        else
             try {
-                return RESOURCE_SLO.getString(key);
+                Main.plugin.getLogger().info(RESOURCE_EN.getString("SA.WrongLanguage") + "Selected language: " + language);
+                return RESOURCE_EN.getString(key);
             } catch (MissingResourceException e) {
                 return "!" + key + "!";
             }
-        }
-        else try {
-            Main.plugin.getLogger().info(RESOURCE_EN.getString("SA.WrongLanguage") + "Selected language: " + language);
-            return RESOURCE_EN.getString(key);
-        } catch (MissingResourceException e) {
-            return "!" + key + "!";
-        }
     }
 }
