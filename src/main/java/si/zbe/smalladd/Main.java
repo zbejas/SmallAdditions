@@ -86,7 +86,7 @@ public class Main extends JavaPlugin {
 		// AUTOFEED
 		if (getConfig().getBoolean("AutoFeed")) {
 			getServer().getPluginManager().registerEvents(new FoodEvent(), this);
-			getLogger().info(Messages.getString("SA.AutoFeedWarning"));
+			//getLogger().info(Messages.getString("SA.AutoFeedWarning"));
 		} else {
 			getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
 		}
@@ -153,23 +153,7 @@ public class Main extends JavaPlugin {
 	}
 
 	private void setConfig() {
-		getConfig().addDefault("Crops", true);
-		getConfig().addDefault("AutoFeed", true);
-		getConfig().addDefault("NoTrample", true);
-		getConfig().addDefault("MineSpawners", true);
-		getConfig().addDefault("Tools.Workbench", true);
-		getConfig().addDefault("Tools.BetterHoes", true);
-		getConfig().addDefault("Tools.InfiniteTorch", true);
-		getConfig().addDefault("Tools.TotemInInv", true);
-		getConfig().addDefault("VillagerAdditions", true);
-		getConfig().addDefault("VillagerAdditions.Leash", true);
-		getConfig().addDefault("VillagerAdditions.Drops", true);
-		getConfig().addDefault("CustomRecipes", true);
-		getConfig().addDefault("CustomRecipes.Chest", true);
-		getConfig().addDefault("Language", "english");
 		getConfig().options().copyDefaults(true);
-		saveConfig();
-		getConfig().options().header(Messages.getString("SA.ConfigLanguage"));
 		saveConfig();
 	}
 
@@ -184,7 +168,6 @@ public class Main extends JavaPlugin {
 	}
 
 	private void registerRecipes() {
-
 		if (getConfig().getBoolean("CustomRecipes.Chest")) {
 			ChestRecipe chest = new ChestRecipe();
 			plugin.getServer().addRecipe(chest.createRecipe());
