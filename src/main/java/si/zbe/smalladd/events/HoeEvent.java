@@ -30,7 +30,7 @@ public class HoeEvent implements Listener {
 			ArrayList<Block> list = new ArrayList<Block>();
 			Block block = e.getClickedBlock();
 			Block block1 = p.getWorld().getBlockAt(block.getX() + 1, block.getY(), block.getZ() + 1);
-			Block block2 = p.getWorld().getBlockAt(block.getX() + 1, block.getY(), block.getZ());
+			Block block2 = p.getWorld().getBlockAt(block.getX(), block.getY(), block.getZ() + 1);
 			Block block3 = p.getWorld().getBlockAt(block.getX() + 1, block.getY(), block.getZ());
 			list.add(block);
 			list.add(block1);
