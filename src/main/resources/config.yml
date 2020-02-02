@@ -1,4 +1,4 @@
-JoinNotification: true
+UpdateNotification: true
 Crops: true
 AutoFeed: true
 NoTrample: true

@@ -11,7 +11,7 @@ import org.bukkit.inventory.ShapedRecipe;
 import si.zbe.smalladd.Main;
 
 public class ChestRecipe {
-	public ShapedRecipe createRecipe() {
+	public ShapedRecipe getRecipe() {
 		ShapedRecipe r = new ShapedRecipe(new NamespacedKey(Main.plugin, "chest"), new ItemStack(Material.CHEST, 4));
 		ArrayList<Material> logs = new ArrayList<Material>();
 		logs.add(Material.ACACIA_LOG);
