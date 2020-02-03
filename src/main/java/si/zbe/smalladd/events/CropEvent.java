@@ -1,7 +1,10 @@
 package si.zbe.smalladd.events;
 
 import net.minecraft.server.v1_15_R1.BlockPosition;
+import net.minecraft.server.v1_15_R1.Entity;
+import net.minecraft.server.v1_15_R1.PacketPlayOutAnimation;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
@@ -87,21 +90,42 @@ public class CropEvent implements Listener {
                 }
             }
 
+            PacketPlayOutAnimation animation = new PacketPlayOutAnimation(((CraftPlayer)e.getPlayer()).getHandle(), 0);
+            ((CraftPlayer) e.getPlayer()).getHandle().playerConnection.sendPacket(animation);
+
             if (SeedInDrop) {
                 block.getDrops().remove(new ItemStack(getSeed(m), 1));
                 ((CraftPlayer) e.getPlayer()).getHandle().playerInteractManager.breakBlock(new BlockPosition(block.getX(), block.getY(), block.getZ()));
                 block.breakNaturally();
+                if (block.getType() == Material.NETHER_WART) {
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NETHER_WART_BREAK, 10, 1);
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ITEM_NETHER_WART_PLANT, 8, 1);
+                } else {
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_CROP_BREAK, 10, 1);
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ITEM_CROP_PLANT, 8, 1);
+                }
                 block.setType(m);
-                return;
             } else if (e.getPlayer().getInventory().containsAtLeast(new ItemStack(getSeed(m)), 1)) {
                 e.getPlayer().getInventory().remove(new ItemStack(getSeed(m), 1));
                 ((CraftPlayer) e.getPlayer()).getHandle().playerInteractManager.breakBlock(new BlockPosition(block.getX(), block.getY(), block.getZ()));
                 block.breakNaturally();
+                if (block.getType() == Material.NETHER_WART) {
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NETHER_WART_BREAK, 10, 1);
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ITEM_NETHER_WART_PLANT, 8, 1);
+                } else {
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_CROP_BREAK, 10, 1);
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ITEM_CROP_PLANT, 8, 1);
+                }
                 block.setType(m);
-                return;
-            } else
+            } else {
                 ((CraftPlayer) e.getPlayer()).getHandle().playerInteractManager.breakBlock(new BlockPosition(block.getX(), block.getY(), block.getZ()));
-            block.breakNaturally();
+                block.breakNaturally();
+                if (block.getType() == Material.NETHER_WART) {
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_NETHER_WART_BREAK, 10, 1);
+                } else {
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_CROP_BREAK, 10, 1);
+                }
+            }
         }
     }
 }
