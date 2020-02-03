@@ -47,7 +47,7 @@ public class FoodEvent implements Listener {
 					counter++;
 				}
 				if (counter > 1)
-					p.sendMessage(ChatColor.GREEN + "[AutoFeed] " + Messages.getString("SA.RapidFeed1") + " " + counter
+					p.sendMessage(ChatColor.GREEN + "[AutoFeed] " + Messages.getString("SA.RapidFeed1") + " " + ChatColor.RED + counter + ChatColor.GREEN
 							+ " " + Messages.getString("SA.RapidFeed2"));
 			}
 		} else if (e.getFoodLevel() + getNutritionValue(mat) == 20) {
