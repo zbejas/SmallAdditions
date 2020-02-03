@@ -18,7 +18,7 @@ public class FoodEvent implements Listener {
 		if (!p.getInventory().containsAtLeast(new ItemStack(mat), 16)) {
 			//p.sendMessage(ChatColor.DARK_GREEN + "[AutoFeed] " + Messages.getString("SA.AutoFeedLowFood"));
 			TitleManager tm = new TitleManager();
-			tm.sendTitleActionBar(p, ChatColor.DARK_RED + Messages.getString("SA.AutoFeedLowFood"), 40, 100, 40);
+			tm.sendTitleActionBar(p, ChatColor.RED + Messages.getString("SA.AutoFeedLowFood"), 40, 100, 40);
 		}
 		if (e.getFoodLevel() < 15 && getNutritionValue(mat) < 6) {
 			if (p.getInventory().containsAtLeast(new ItemStack(mat), 1)) {
