@@ -17,7 +17,7 @@ VillagerAdditions:
   Drops: true
   EmeraldDropChance:
     Drop: 2
-    DropChance: 30
+    DropChance: 50
     Randomize: true
 CustomRecipes:
   Chest: true
