@@ -10,7 +10,7 @@ public class TitleManager {
     /*
     *   This will probably break every few updates
     *   Lol titles are now in spigot, nevermind
-     */
+    */
 
     public void sendTitleActionBar(Player player, String message) {
         PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.ACTIONBAR, IChatBaseComponent.ChatSerializer.a("{\"text\":\" " + message + "\"}"), 25, 50, 25);
