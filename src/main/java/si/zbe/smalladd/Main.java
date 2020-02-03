@@ -13,8 +13,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        int pluginId = 6335;
-        Metrics metrics = new Metrics(this, pluginId);
+        Metrics metrics = new Metrics(this, 6335);
         setConfig();
         updateCheck();
         registerCommands();

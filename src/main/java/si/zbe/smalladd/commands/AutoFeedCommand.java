@@ -1,10 +1,5 @@
 package si.zbe.smalladd.commands;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -12,9 +7,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-
 import si.zbe.smalladd.Main;
 import si.zbe.smalladd.Messages;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 	@SuppressWarnings("unused")
@@ -132,9 +131,6 @@ public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 			return false;
 		else if (m == Material.SUSPICIOUS_STEW)
 			return false;
-		else if (m == Material.RABBIT_STEW) {
-			return false;
-		} else
-			return true;
+		else return m != Material.RABBIT_STEW;
 	}
 }

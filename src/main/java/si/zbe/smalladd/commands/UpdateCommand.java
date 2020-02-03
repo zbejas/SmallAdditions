@@ -27,7 +27,7 @@ public class UpdateCommand implements CommandExecutor {
 			sender.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
 			return true;
 		}
-		(new UpdateChecker((Plugin) this.plugin, 74452)).getVersion(version -> {
+		(new UpdateChecker(this.plugin, 74452)).getVersion(version -> {
 			if (this.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
 				sender.sendMessage(ChatColor.GREEN + Messages.getString("SA.NoUpdate"));
 			} else {

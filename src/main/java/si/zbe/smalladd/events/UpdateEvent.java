@@ -19,7 +19,7 @@ public class UpdateEvent implements Listener {
 		if (!Main.plugin.getConfig().getBoolean("UpdateNotification"))
 			return;
 
-		(new UpdateChecker((Plugin) Main.plugin, 74452)).getVersion(version -> {
+		(new UpdateChecker(Main.plugin, 74452)).getVersion(version -> {
 			if (!Main.plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
 				e.getPlayer().sendMessage(ChatColor.GREEN + "[SmallAdditions] " + Messages.getString("SA.UpdateFound"));
 				e.getPlayer().sendMessage(ChatColor.GREEN + "                 " + ChatColor.RED + Main.plugin.getDescription().getVersion() + ChatColor.WHITE

@@ -17,7 +17,7 @@ public class VillagerLeashEvent implements Listener {
 	public void onVillagerLeash(PlayerInteractEntityEvent e) {
 		if (e.getRightClicked().getType() != EntityType.VILLAGER)
 			return;
-		Player p = (Player) e.getPlayer();
+		Player p = e.getPlayer();
 		
 		if (!p.hasPermission("smalladd.villagerleash"))
 			return;
