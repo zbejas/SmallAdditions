@@ -4,13 +4,6 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class Messages {
-
-    /*
-     * TODO ResourceBundle implement ways to deal with languages. Properties could look like
-     *  language.properties
-     *  language_de.properties
-     *  language_fr.properties
-     */
     private static final String BUNDLE_EN = "si.zbe.languages.english";
     private static final ResourceBundle RESOURCE_EN = ResourceBundle.getBundle(BUNDLE_EN);
 
