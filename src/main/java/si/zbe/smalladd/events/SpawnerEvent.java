@@ -56,6 +56,7 @@ public class SpawnerEvent implements Listener {
 		newspawner.setSpawnedType(brokenspawner.getSpawnedType());
 		meta.setBlockState(newspawner);
 		meta.setLore(lore);
+		meta.setDisplayName(ChatColor.GOLD +  "Spawner (" + brokenspawner.getSpawnedType().toString().toLowerCase() + ")");
 		item.setItemMeta(meta);
 
 		block.getWorld().dropItemNaturally(block.getLocation(), item);
