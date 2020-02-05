@@ -141,6 +141,7 @@ public class Main extends JavaPlugin {
     }
 
     private void updateCheck() {
+        getLogger().info(Messages.getString("SA.UpdateCheck"));
         new UpdateChecker(this, 74452).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 getLogger().info(Messages.getString("SA.NoUpdate"));
