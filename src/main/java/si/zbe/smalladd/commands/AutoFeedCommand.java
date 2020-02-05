@@ -33,13 +33,13 @@ public class AutoFeedCommand implements CommandExecutor, TabCompleter {
 
 		Player p = (Player) sender;
 
-		if (args.length > 1) {
-			p.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
-		}
-
 		if (!p.hasPermission("smalladd.autofeed")) {
 			p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return true;
+		}
+
+		if (args.length > 1) {
+			p.sendMessage(ChatColor.RED + Messages.getString("SA.InvalidInput"));
 		}
 
 		if (map.containsKey(p) && args.length == 0) {
