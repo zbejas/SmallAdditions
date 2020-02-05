@@ -1,7 +1,7 @@
 name: SmallAdditions
 main: si.zbe.smalladd.Main
 author: TheZbe
-description: 'Adds all the small details you will love.'
+description: 'Features you wish were already included in Minecraft.'
 api-version: 1.13
 version: ${project.version}
 commands:
