@@ -1,6 +1,7 @@
 package si.zbe.smalladd.events;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -9,34 +10,37 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
-
 import si.zbe.smalladd.Main;
+import si.zbe.smalladd.Messages;
 
 public class VillagerLeashEvent implements Listener {
-	@EventHandler
-	public void onVillagerLeash(PlayerInteractEntityEvent e) {
-		if (e.getRightClicked().getType() != EntityType.VILLAGER)
+    @EventHandler
+    public void onVillagerLeash(PlayerInteractEntityEvent e) {
+        if (e.getRightClicked().getType() != EntityType.VILLAGER)
+            return;
+        Player p = e.getPlayer();
+
+        Villager v = (Villager) e.getRightClicked();
+        final ItemStack itemInHand = p.getInventory().getItemInMainHand();
+
+        if (itemInHand.getType() != Material.LEAD)
+            return;
+
+		if (!p.hasPermission("smalladd.villagerleash")) {
+			p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
 			return;
-		Player p = e.getPlayer();
-		
-		if (!p.hasPermission("smalladd.villagerleash"))
-			return;
-		
-		Villager v = (Villager) e.getRightClicked();
-    	final ItemStack itemInHand = p.getInventory().getItemInMainHand();
-		
-		if (itemInHand.getType() != Material.LEAD)
-			return;
-		
-		e.setCancelled(true);
-		
-		if (!v.isLeashed())
-			Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
-			    @Override
-			    public void run() {
-			    	itemInHand.setAmount(itemInHand.getAmount() -1);
-			        v.setLeashHolder(p);
-			    }
-			}, 1L);
-	}
+		}
+
+        e.setCancelled(true);
+
+        if (!v.isLeashed()) {
+            Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
+                @Override
+                public void run() {
+                    itemInHand.setAmount(itemInHand.getAmount() - 1);
+                    v.setLeashHolder(p);
+                }
+            }, 1L);
+        }
+    }
 }
