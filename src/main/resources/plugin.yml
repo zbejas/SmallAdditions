@@ -42,6 +42,7 @@ permissions:
         smalladd.tool.workbench: true
         smalladd.tool.torch: true
         smalladd.tool.hoe: true
+        smalladd.tool.armor: true
   smalladd.villagerleash:
     description: 'Allows you to leash a villager.'
     default: false
@@ -56,6 +57,9 @@ permissions:
     default: false
   smalladd.tool.hoe:
     description: 'Allows you to use improved hoes.'
+    default: false
+  smalladd.tool.armor:
+    description: 'Allows you to switch armor.'
     default: false
   smalladd.autofeed:
     description: 'Allows you to get fed from items in your inventory.'
