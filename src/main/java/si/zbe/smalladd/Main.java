@@ -63,7 +63,7 @@ public class Main extends JavaPlugin {
         if (getConfig().getBoolean("Crops")) {
             getServer().getPluginManager().registerEvents(new CropEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.CropsDisabled"));
+            getLogger().info("Crop harvest " + Messages.getString("SA.OptionDisabled"));
         }
 
         // AUTOFEED
@@ -71,35 +71,35 @@ public class Main extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new FoodEvent(), this);
             //getLogger().info(Messages.getString("SA.AutoFeedWarning"));
         } else {
-            getLogger().info(Messages.getString("SA.AutoFeedDisabled"));
+            getLogger().info("AutoFeed " + Messages.getString("SA.OptionDisabled"));
         }
 
         // NOTRAMPLE
         if (getConfig().getBoolean("NoTrample")) {
             getServer().getPluginManager().registerEvents(new TrampleEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.NoTrampleDisabled"));
+            getLogger().info("NoTrample " + Messages.getString("SA.OptionDisabled"));
         }
 
         // WORKBENCH
         if (getConfig().getBoolean("Tools.Workbench")) {
             getServer().getPluginManager().registerEvents(new WorkbenchEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.WorkbenchDisabled"));
+            getLogger().info("Workbench " + Messages.getString("SA.OptionDisabled"));
         }
 
         // VILLAGER DROPS
         if (getConfig().getBoolean("VillagerAdditions.Drops")) {
             getServer().getPluginManager().registerEvents(new VillagerDeathEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.VillagerDropsDisabled"));
+            getLogger().info("VillagerAdditions Drops " + Messages.getString("SA.OptionDisabled"));
         }
 
         // VILLAGER LEASH
         if (getConfig().getBoolean("VillagerAdditions.Leash")) {
             getServer().getPluginManager().registerEvents(new VillagerLeashEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.VillagerLeashDisabled"));
+            getLogger().info("VillagerAdditions Leash " + Messages.getString("SA.OptionDisabled"));
         }
 
         // TORCH
@@ -107,32 +107,40 @@ public class Main extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new TorchEvent(), this);
             getLogger().info(Messages.getString("SA.TorchWarning"));
         } else {
-            getLogger().info(Messages.getString("SA.TorchDisabled"));
+            getLogger().info("InfiniteTorch " + Messages.getString("SA.OptionDisabled"));
         }
 
         // HOE
         if (getConfig().getBoolean("Tools.BetterHoes")) {
             getServer().getPluginManager().registerEvents(new HoeEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.HoesDisabled"));
+            getLogger().info("BetterHoe " + Messages.getString("SA.OptionDisabled"));
         }
 
         // SPAWNER
         if (getConfig().getBoolean("MineSpawners")) {
             getServer().getPluginManager().registerEvents(new SpawnerEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.SpawnerDisabled"));
+            getLogger().info("MineSpawners " + Messages.getString("SA.OptionDisabled"));
         }
 
         // TOTEM
         if (getConfig().getBoolean("Tools.TotemInInv")) {
             getServer().getPluginManager().registerEvents(new DeathEvent(), this);
         } else {
-            getLogger().info(Messages.getString("SA.TotemDisabled"));
+            getLogger().info("TotemToInv " + Messages.getString("SA.OptionDisabled"));
+        }
+
+        // ARMOR
+        if (getConfig().getBoolean("Tools.SwitchArmor")) {
+            getServer().getPluginManager().registerEvents(new ArmorEvent(), this);
+        } else {
+            getLogger().info("SwitchArmor " + Messages.getString("SA.OptionDisabled"));
         }
 
         // UPDATE
         getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
+
     }
 
     private void setConfig() {
