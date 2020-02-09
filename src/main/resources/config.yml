@@ -12,6 +12,7 @@ Tools:
   BetterHoes: false
   InfiniteTorch: true
   TotemInInv: true
+  SwitchArmor: true
 VillagerAdditions:
   Leash: true
   Drops: true
