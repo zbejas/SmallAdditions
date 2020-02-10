@@ -21,6 +21,7 @@ You can enable and disable all functions in the config file.
 
 Command | Aliases | Usage | Premission
 --- | --- | --- | ----
+/autoarmor | /af | Player enables AutoArmor | smalladd.tool.armor
 /autofeed <Food option> | /af | Player selects food that is then fed to the player. | smalladd.autofeed
 /portableworkbench | /pwb | Sets item name to 'Portable Workbench'. | smalladd.tool.workbench
 /infinitetorch | /it | Creates an infinite torch | smalladd.tool.torch
@@ -30,6 +31,8 @@ Command | Aliases | Usage | Premission
 
 #### Crop harvest
 By giving a player or group the permission _smalladd.crop.*_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contain the seeds, the seed will be taken out of the drop and if the drops don't contain it, then the seed will be taken out of the players' inventory. If the players' inventory doesn't contain any seeds, the crop won't be replanted.
+
+_Crop harvest now has animations! New gif incoming._
 
 ![Gif broken](https://i.imgur.com/6PwLcbN.gif)
 
@@ -117,6 +120,7 @@ smalladd.crop.wheat | Enables wheat harvest.
 smalladd.notrample | Player with permission cant trample crops.
 smalladd.spawner | Lets players mine spawners.
 smalladd.tool.* | Enables all tools for players.
+smalladd.tool.armor | Enables armor switch on right-click and AutoArmor
 smalladd.tool.hoe | Lets players use improved hoes.
 smalladd.tool.torch | Enables infinite torch command and usage.
 smalladd.tool.workbench | Enables portable workbench command and usage.
