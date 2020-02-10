@@ -54,6 +54,14 @@ public class Main extends JavaPlugin {
             getCommand("infinitetorch").setExecutor(new DisabledCommand(this));
         }
 
+        // AUTOARMOR
+        if (getConfig().getBoolean("Tools.AutoArmor.Enabled")) {
+            getCommand("autoarmor").setExecutor(new AutoArmorCommand(this));
+        } else {
+            //getLogger().info(Messages.getString("SA.TorchDisabled"));
+            getCommand("autoarmor").setExecutor(new DisabledCommand(this));
+        }
+
         // UPDATE
         getCommand("saupdate").setExecutor(new UpdateCommand(this));
     }
@@ -136,6 +144,12 @@ public class Main extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new ArmorEvent(), this);
         } else {
             getLogger().info("SwitchArmor " + Messages.getString("SA.OptionDisabled"));
+        }
+
+        if (getConfig().getBoolean("Tools.AutoArmor.Enabled")) {
+            getServer().getPluginManager().registerEvents(new AutoArmorEvent(), this);
+        } else {
+            getLogger().info("AutoArmor " + Messages.getString("SA.OptionDisabled"));
         }
 
         // UPDATE
