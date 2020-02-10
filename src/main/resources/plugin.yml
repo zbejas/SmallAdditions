@@ -5,6 +5,10 @@ description: 'Features you wish were already included in Minecraft.'
 api-version: 1.13
 version: ${project.version}
 commands:
+   autoarmor:
+      description: Enables or disables AutoArmor.
+      usage: /<command>
+      aliases: aa
    autofeed:
       description: Enables or disables AutoFeed.
       usage: /<command> <atribute>
