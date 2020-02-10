@@ -146,12 +146,15 @@ public class Main extends JavaPlugin {
             getLogger().info("SwitchArmor " + Messages.getString("SA.OptionDisabled"));
         }
 
+        // AUTOARMOR
         if (getConfig().getBoolean("Tools.AutoArmor.Enabled")) {
             getServer().getPluginManager().registerEvents(new AutoArmorEvent(), this);
         } else {
             getLogger().info("AutoArmor " + Messages.getString("SA.OptionDisabled"));
         }
 
+        // FULLINV
+        getServer().getPluginManager().registerEvents(new FullInvEvent(), this);
         // UPDATE
         getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
 
