@@ -13,6 +13,14 @@ Tools:
   InfiniteTorch: true
   TotemInInv: true
   SwitchArmor: true
+  AutoArmor:
+    Enabled: true
+    Priorities:
+      Diamond: 5
+      Iron: 4
+      Chain: 3
+      Gold: 2
+      Leather: 1
 VillagerAdditions:
   Leash: true
   Drops: true
