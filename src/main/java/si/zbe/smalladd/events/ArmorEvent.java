@@ -56,18 +56,18 @@ public class ArmorEvent implements Listener {
     }
 
     boolean isHelmet(Material m) {
-        return m == Material.LEATHER_HELMET || m == Material.IRON_HELMET || m == Material.GOLDEN_HELMET || m == Material.DIAMOND_HELMET;
+        return m == Material.LEATHER_HELMET || m == Material.IRON_HELMET || m == Material.CHAINMAIL_HELMET || m == Material.GOLDEN_HELMET || m == Material.DIAMOND_HELMET;
     }
 
     boolean isChestplate(Material m) {
-        return m == Material.LEATHER_CHESTPLATE || m == Material.IRON_CHESTPLATE || m == Material.GOLDEN_CHESTPLATE || m == Material.DIAMOND_CHESTPLATE;
+        return m == Material.LEATHER_CHESTPLATE || m == Material.IRON_CHESTPLATE || m == Material.CHAINMAIL_CHESTPLATE || m == Material.GOLDEN_CHESTPLATE || m == Material.DIAMOND_CHESTPLATE;
     }
 
     boolean isLeggings(Material m) {
-        return m == Material.LEATHER_LEGGINGS || m == Material.IRON_LEGGINGS || m == Material.GOLDEN_LEGGINGS || m == Material.DIAMOND_LEGGINGS;
+        return m == Material.LEATHER_LEGGINGS || m == Material.IRON_LEGGINGS || m == Material.CHAINMAIL_LEGGINGS || m == Material.GOLDEN_LEGGINGS || m == Material.DIAMOND_LEGGINGS;
     }
 
     boolean isBoots(Material m) {
-        return m == Material.LEATHER_BOOTS || m == Material.IRON_BOOTS || m == Material.GOLDEN_BOOTS || m == Material.DIAMOND_BOOTS;
+        return m == Material.LEATHER_BOOTS || m == Material.IRON_BOOTS || m == Material.CHAINMAIL_BOOTS || m == Material.GOLDEN_BOOTS || m == Material.DIAMOND_BOOTS;
     }
 }
