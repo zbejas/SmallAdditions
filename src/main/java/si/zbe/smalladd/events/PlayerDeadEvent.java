@@ -31,15 +31,15 @@ public class PlayerDeadEvent implements Listener {
 
         if (dm.getDeaths(p).size() > 12) {
             int counter = dm.getDeaths(p).size() - 12;
-            for (int i = 0; i <= counter; i++) {
-                dm.removeDeath(p, dm.getDeaths(p).get(0));
+            for (int i = 0; i < counter; i++) {
+                dm.removeDeath(p, dm.getDeaths(p).get(i));
             }
         }
 
         dm.addDeath(p, p.getLocation());
         dm.saveDeathData();
     }
-    
+
     @EventHandler
     public void onRespawn(PlayerRespawnEvent e) {
 
