@@ -1,12 +1,12 @@
 package si.zbe.smalladd.commands;
 
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+		import org.bukkit.ChatColor;
+		import org.bukkit.command.Command;
+		import org.bukkit.command.CommandExecutor;
+		import org.bukkit.command.CommandSender;
 
-import si.zbe.smalladd.Main;
-import si.zbe.smalladd.Messages;
+		import si.zbe.smalladd.Main;
+		import si.zbe.smalladd.Messages;
 
 public class DisabledCommand implements CommandExecutor {
 	@SuppressWarnings("unused")
