@@ -25,6 +25,10 @@ commands:
       description: Checks for updates.
       usage: /<command>
       aliases: sau
+   sadeath:
+      description: Teleports to last known death location.
+      usage: /<command>
+      aliases: sad
 permissions:
   smalladd.*:
     description: 'Gives access to all SmallAdditions features.'
