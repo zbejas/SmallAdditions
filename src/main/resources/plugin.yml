@@ -41,8 +41,16 @@ permissions:
       smalladd.villagerleash: true
       smalladd.tool.*: true
       smalladd.spawner: true
+      smalladd.deathbook: true
+      smalladd.deathbook.teleport: true
   smalladd.admin:
     description: 'Allows you to check for updates.'
+    default: false
+  smalladd.deathbook:
+    description: 'Allows you to get the Death Note..'
+    default: false
+  smalladd.deathbook.teleport:
+    description: 'Allows you to use teleport in Death Note'
     default: false
   smalladd.tool.*:
      description: 'Usage of all tools this plugin offers'
