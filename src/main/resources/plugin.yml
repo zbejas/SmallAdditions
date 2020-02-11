@@ -14,11 +14,11 @@ commands:
       usage: /<command> <atribute>
       aliases: af
    portableworkbench:
-      description: Sets name to 'Portable Workbench'.
+      description: Creates a 'Portable Workbench'.
       usage: /<command>
       aliases: pwb
    infinitetorch:
-      description: Sets name to 'Portable Workbench'.
+      description: Creates a 'Portable Workbench'.
       usage: /<command>
       aliases: it
    saupdate:
@@ -26,7 +26,7 @@ commands:
       usage: /<command>
       aliases: sau
    sadeath:
-      description: Teleports to last known death location.
+      description: Gives a Death Note..
       usage: /<command>
       aliases: sad
 permissions:
