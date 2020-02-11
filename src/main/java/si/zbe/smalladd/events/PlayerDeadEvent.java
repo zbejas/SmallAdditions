@@ -39,13 +39,14 @@ public class PlayerDeadEvent implements Listener {
         dm.addDeath(p, p.getLocation());
         dm.saveDeathData();
     }
-
-    // TODO: add condig managment for: enable/disable, banned world
-    //TODO: add permissions
+    
     @EventHandler
     public void onRespawn(PlayerRespawnEvent e) {
 
         if (!Main.plugin.getConfig().getBoolean("DeathBook.BookOnRespawn"))
+            return;
+
+        if (!e.getPlayer().hasPermission("smalladd.deathbook"))
             return;
 
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
