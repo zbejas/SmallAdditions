@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import si.zbe.smalladd.commands.*;
 import si.zbe.smalladd.events.*;
 import si.zbe.smalladd.recipes.ChestRecipe;
+import si.zbe.smalladd.utils.DeathManager;
 
 public class Main extends JavaPlugin {
 
@@ -26,6 +27,8 @@ public class Main extends JavaPlugin {
     public void onDisable() {
         getLogger().info(Messages.getString("SA.SmallAdditionsDisabled"));
         plugin.getServer().resetRecipes();
+        DeathManager dm = new DeathManager();
+        dm.saveDeathData();
     }
 
     private void registerCommands() {
@@ -59,6 +62,13 @@ public class Main extends JavaPlugin {
             getCommand("autoarmor").setExecutor(new AutoArmorCommand(this));
         } else {
             //getLogger().info(Messages.getString("SA.TorchDisabled"));
+            getCommand("autoarmor").setExecutor(new DisabledCommand(this));
+        }
+
+        // DEATH COMMAND
+        if (getConfig().getBoolean("DeathBook.Enabled")) {
+            getCommand("sadeath").setExecutor(new DeathCommand(this));
+        } else {
             getCommand("autoarmor").setExecutor(new DisabledCommand(this));
         }
 
@@ -155,14 +165,17 @@ public class Main extends JavaPlugin {
 
         // FULLINV
         getServer().getPluginManager().registerEvents(new FullInvEvent(), this);
+
+        // DEATHBOOK
+        if (getConfig().getBoolean("DeathBook.Enabled")) {
+            getServer().getPluginManager().registerEvents(new PlayerDeadEvent(), this);
+        } else {
+            getLogger().info("DeathBook " + Messages.getString("SA.OptionDisabled"));
+        }
+
         // UPDATE
         getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
 
-    }
-
-    private void setConfig() {
-        getConfig().options().copyDefaults(true);
-        saveConfig();
     }
 
     private void updateCheck() {
@@ -183,5 +196,10 @@ public class Main extends JavaPlugin {
         } else {
             getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
         }
+    }
+
+    public void setConfig() {
+        getConfig().options().copyDefaults(true);
+        saveConfig();
     }
 }
