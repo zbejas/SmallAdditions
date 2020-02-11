@@ -75,7 +75,7 @@ public class PlayerDeadEvent implements Listener {
             }
         }
 
-        BaseComponent[] lastdeath = new ComponentBuilder(ChatColor.BLACK + "" + ChatColor.BOLD + "     Last death    ")
+        BaseComponent[] lastdeath = new ComponentBuilder(ChatColor.BLACK + "" + ChatColor.BOLD + "      Last death   ")
                 .event(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/sad teleport"))
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(ChatColor.GOLD + "Teleport to last death location.").create()))
                 .append(deaths, ComponentBuilder.FormatRetention.NONE)
