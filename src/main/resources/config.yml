@@ -1,33 +1,38 @@
-UpdateNotification: true
-Crops: true
 AutoFeed: true
-NoTrample: true
-MineSpawners: true
 BannedSpawners:
   - Pig
   - Cow
   - Villager
+Crops: true
+CustomRecipes:
+  Chest: true
+DeathBook:
+  BannedWorlds:
+    - world_nether
+  BookOnRespawn: true
+  Enabled: true
+Language: english
+MineSpawners: true
+NoTrample: true
 Tools:
-  Workbench: true
-  BetterHoes: false
-  InfiniteTorch: true
-  TotemInInv: true
-  SwitchArmor: true
   AutoArmor:
     Enabled: true
     Priorities:
-      Diamond: 5
-      Iron: 4
       Chain: 3
+      Diamond: 5
       Gold: 2
+      Iron: 4
       Leather: 1
+  BetterHoes: false
+  InfiniteTorch: true
+  SwitchArmor: true
+  TotemInInv: true
+  Workbench: true
+UpdateNotification: true
 VillagerAdditions:
-  Leash: true
   Drops: true
   EmeraldDropChance:
     Drop: 2
     DropChance: 50
     Randomize: true
-CustomRecipes:
-  Chest: true
-Language: english
+  Leash: true
