@@ -4,11 +4,12 @@ import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
-import org.bukkit.*;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
@@ -35,6 +36,12 @@ public class DeathCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if (args.length == 0) {
+
+            if (!p.hasPermission("smalladd.deathbook")) {
+                p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
+                return true;
+            }
+
             ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
             BookMeta bookMeta = (BookMeta) book.getItemMeta();
 
@@ -79,24 +86,30 @@ public class DeathCommand implements CommandExecutor {
         } else if (args.length == 1) {
             DeathManager dm = new DeathManager();
 
-           if (args[0].equalsIgnoreCase("teleport")) {
-               try {
-                   Location loc = dm.getDeaths(p).get(dm.getDeaths(p).size()-1);
+            if (args[0].equalsIgnoreCase("teleport")) {
 
-                   List <String> worlds = Main.plugin.getConfig().getStringList("DeathBook.BannedWorlds");
+                if (!p.hasPermission("smalladd.deathbook.teleport")) {
+                    p.sendMessage(ChatColor.RED + Messages.getString("SA.NoPerm"));
+                    return true;
+                }
 
-                   for (String s : worlds) {
-                       if (s.equalsIgnoreCase(loc.getWorld().getName())) {
-                           p.sendMessage(ChatColor.RED + "World disabled.");
-                           return true;
-                       }
-                   }
+                try {
+                    Location loc = dm.getDeaths(p).get(dm.getDeaths(p).size() - 1);
 
-                   p.teleport(loc);
-               } catch (Exception e) {
-                   p.sendMessage(ChatColor.RED + "No saved deaths.");
-               }
-           }
+                    List <String> worlds = Main.plugin.getConfig().getStringList("DeathBook.BannedWorlds");
+
+                    for (String s : worlds) {
+                        if (s.equalsIgnoreCase(loc.getWorld().getName())) {
+                            p.sendMessage(ChatColor.RED + "World disabled.");
+                            return true;
+                        }
+                    }
+
+                    p.teleport(loc);
+                } catch (Exception e) {
+                    p.sendMessage(ChatColor.RED + "No saved deaths.");
+                }
+            }
 
             return true;
         } else {
