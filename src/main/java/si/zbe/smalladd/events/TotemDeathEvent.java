@@ -13,7 +13,7 @@ import org.bukkit.potion.PotionEffectType;
 import net.minecraft.server.v1_15_R1.EntityPlayer;
 import net.minecraft.server.v1_15_R1.PacketPlayOutEntityStatus;
 
-public class DeathEvent implements Listener {
+public class TotemDeathEvent implements Listener {
 	@EventHandler
 	public void onDeath(EntityDamageEvent e) {
 		if (!(e.getEntity() instanceof Player))

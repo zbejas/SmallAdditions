@@ -1,6 +1,7 @@
 package si.zbe.smalladd.utils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -63,11 +64,9 @@ public class DeathManager {
     public ArrayList <Location> getDeaths(Player p) {
         ArrayList <Location> list = new ArrayList <>();
         for (String s : deathConfig.getStringList(p.getUniqueId().toString())) {
-
-            String[] parts = s.split(":");
-
-
+            
             try {
+                String[] parts = s.split(":");
                 double x = Double.parseDouble(parts[0]);
                 double y = Double.parseDouble(parts[1]);
                 double z = Double.parseDouble(parts[2]);
@@ -79,7 +78,7 @@ public class DeathManager {
 
                 list.add(loc);
             } catch (Exception e) {
-                e.printStackTrace();
+                p.sendMessage(ChatColor.RED + "No known death locations.");
             }
         }
         return list;

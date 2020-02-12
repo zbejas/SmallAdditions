@@ -1,4 +1,5 @@
 AutoFeed: true
+MineSpawners: true
 BannedSpawners:
   - Pig
   - Cow
@@ -12,7 +13,6 @@ DeathBook:
   BookOnRespawn: true
   Enabled: true
 Language: english
-MineSpawners: true
 NoTrample: true
 Tools:
   AutoArmor:

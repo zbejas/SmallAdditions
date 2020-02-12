@@ -86,7 +86,7 @@ public class Main extends JavaPlugin {
 
         // AUTOFEED
         if (getConfig().getBoolean("AutoFeed")) {
-            getServer().getPluginManager().registerEvents(new FoodEvent(), this);
+            getServer().getPluginManager().registerEvents(new AutoFeedEvent(), this);
             //getLogger().info(Messages.getString("SA.AutoFeedWarning"));
         } else {
             getLogger().info("AutoFeed " + Messages.getString("SA.OptionDisabled"));
@@ -137,21 +137,21 @@ public class Main extends JavaPlugin {
 
         // SPAWNER
         if (getConfig().getBoolean("MineSpawners")) {
-            getServer().getPluginManager().registerEvents(new SpawnerEvent(), this);
+            getServer().getPluginManager().registerEvents(new MineSpawnerEvent(), this);
         } else {
             getLogger().info("MineSpawners " + Messages.getString("SA.OptionDisabled"));
         }
 
         // TOTEM
         if (getConfig().getBoolean("Tools.TotemInInv")) {
-            getServer().getPluginManager().registerEvents(new DeathEvent(), this);
+            getServer().getPluginManager().registerEvents(new TotemDeathEvent(), this);
         } else {
             getLogger().info("TotemToInv " + Messages.getString("SA.OptionDisabled"));
         }
 
         // ARMOR
         if (getConfig().getBoolean("Tools.SwitchArmor")) {
-            getServer().getPluginManager().registerEvents(new ArmorEvent(), this);
+            getServer().getPluginManager().registerEvents(new ClickArmorEvent(), this);
         } else {
             getLogger().info("SwitchArmor " + Messages.getString("SA.OptionDisabled"));
         }
@@ -174,7 +174,7 @@ public class Main extends JavaPlugin {
         }
 
         // UPDATE
-        getServer().getPluginManager().registerEvents(new UpdateEvent(), this);
+        getServer().getPluginManager().registerEvents(new JoinUpdateEvent(), this);
 
     }
 

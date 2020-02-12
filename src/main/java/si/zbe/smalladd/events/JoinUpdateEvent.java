@@ -8,7 +8,7 @@ import si.zbe.smalladd.Main;
 import si.zbe.smalladd.Messages;
 import si.zbe.smalladd.UpdateChecker;
 
-public class UpdateEvent implements Listener {
+public class JoinUpdateEvent implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         if (!e.getPlayer().hasPermission("smalladd.admin"))

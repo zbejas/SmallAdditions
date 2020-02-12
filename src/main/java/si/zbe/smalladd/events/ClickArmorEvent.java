@@ -8,7 +8,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class ArmorEvent implements Listener {
+public class ClickArmorEvent implements Listener {
     @EventHandler
     public void onArmorClick(PlayerInteractEvent e) {
         if (!e.getPlayer().hasPermission("smalladd.tool.armor"))

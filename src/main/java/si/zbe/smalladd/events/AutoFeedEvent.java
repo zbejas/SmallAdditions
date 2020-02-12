@@ -12,7 +12,7 @@ import si.zbe.smalladd.Messages;
 import si.zbe.smalladd.commands.AutoFeedCommand;
 import si.zbe.smalladd.utils.TitleManager;
 
-public class FoodEvent implements Listener {
+public class AutoFeedEvent implements Listener {
 	public void eatFood(Material mat, Player p, FoodLevelChangeEvent e) {
 		if (!p.getInventory().containsAtLeast(new ItemStack(mat), 16)) {
 			//p.sendMessage(ChatColor.DARK_GREEN + "[AutoFeed] " + Messages.getString("SA.AutoFeedLowFood"));

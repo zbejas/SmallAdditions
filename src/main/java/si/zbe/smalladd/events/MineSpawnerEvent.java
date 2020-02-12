@@ -17,7 +17,7 @@ import org.bukkit.inventory.meta.BlockStateMeta;
 import si.zbe.smalladd.Main;
 import si.zbe.smalladd.Messages;
 
-public class SpawnerEvent implements Listener {
+public class MineSpawnerEvent implements Listener {
 	@EventHandler
 	public void onSpawnerBreak(BlockBreakEvent e) {
 		Block block = e.getBlock();
