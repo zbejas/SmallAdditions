@@ -24,8 +24,6 @@ public class HoeEvent implements Listener {
 		if (e.getAction() != Action.RIGHT_CLICK_BLOCK)
 			return;
 
-		// TODO: CHANGE BASED ON PLAYERS DIRECTION
-
 		if (itemInHand.getType() == Material.IRON_HOE || itemInHand.getType() == Material.GOLDEN_HOE) {
 			ArrayList<Block> list = new ArrayList<Block>();
 			Block block = e.getClickedBlock();
