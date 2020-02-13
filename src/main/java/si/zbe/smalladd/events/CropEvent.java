@@ -1,7 +1,6 @@
 package si.zbe.smalladd.events;
 
 import net.minecraft.server.v1_15_R1.BlockPosition;
-import net.minecraft.server.v1_15_R1.Entity;
 import net.minecraft.server.v1_15_R1.PacketPlayOutAnimation;
 import org.bukkit.Material;
 import org.bukkit.Sound;
