@@ -25,6 +25,7 @@ Command | Aliases | Usage | Premission
 /autofeed <Food option> | /af | Player selects food that is then fed to the player. | smalladd.autofeed
 /portableworkbench | /pwb | Sets item name to 'Portable Workbench'. | smalladd.tool.workbench
 /infinitetorch | /it | Creates an infinite torch | smalladd.tool.torch
+/sadeath | /sad | Gives the player a Death Note | smalladd.deathbook
  /saupdate | /sau | Check for updates. | smalladd.admin
 
 ## How it works
@@ -108,15 +109,17 @@ By giving a player or group the permission _smalladd.tool.workbech_, the player 
 
 Permissions | Usage
 --- | ---
-smalladd.*| All permissions for this plugin.
+smalladd.* | All permissions for this plugin.
 smalladd.admin | Currently only for update check.
-smalladd.autofeed | Enables auto-feed option
+smalladd.autofeed | Enables the auto-feed option
 smalladd.crop.* | Enables harvest function for all crops
 smalladd.crop.beetroot | Enables beetroot harvest.
 smalladd.crop.carrot | Enables carrot harvest.
 smalladd.crop.netherwart | Enables nether wart harvest.
 smalladd.crop.potato | Enables potato harvest.
 smalladd.crop.wheat | Enables wheat harvest.
+smalladd.deathbook | Player gets a Death Note
+smalladd.deathbook.teleport | Player can teleport using this book
 smalladd.notrample | Player with permission cant trample crops.
 smalladd.spawner | Lets players mine spawners.
 smalladd.tool.* | Enables all tools for players.
