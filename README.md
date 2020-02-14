@@ -17,6 +17,7 @@ Its features include:
 * Lets you mine spawners
 
 Stats: [bStats](https://bstats.org/plugin/bukkit/SmallAdditions/6335)
+
 Plugin: [Spigot Resources](https://www.spigotmc.org/resources/smalladditions-crop-harvest-villager-drops-portable-crafting-and-more.74452/)
 
 ## Usage
