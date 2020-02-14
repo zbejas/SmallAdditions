@@ -16,6 +16,8 @@ Its features include:
 * Prevents trampling
 * Lets you mine spawners
 
+Stats: [bStats](https://bstats.org/plugin/bukkit/SmallAdditions/6335)
+
 ## Usage
 You can enable and disable all functions in the config file.
 
