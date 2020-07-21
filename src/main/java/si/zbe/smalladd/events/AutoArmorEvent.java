@@ -92,23 +92,25 @@ public class AutoArmorEvent implements Listener {
             return Main.plugin.getConfig().getInt("Tools.AutoArmor.Priorities.Iron");
         else if (m == Material.DIAMOND_HELMET || m == Material.DIAMOND_CHESTPLATE || m == Material.DIAMOND_LEGGINGS || m == Material.DIAMOND_BOOTS)
             return Main.plugin.getConfig().getInt("Tools.AutoArmor.Priorities.Diamond");
+        else if (m == Material.NETHERITE_HELMET || m == Material.NETHERITE_CHESTPLATE || m == Material.NETHERITE_LEGGINGS || m == Material.NETHERITE_BOOTS)
+            return Main.plugin.getConfig().getInt("Tools.AutoArmor.Priorities.Netherite");
         else
             return 0;
     }
 
     boolean isHelmet(Material m) {
-        return m == Material.LEATHER_HELMET || m == Material.IRON_HELMET || m == Material.CHAINMAIL_HELMET || m == Material.GOLDEN_HELMET || m == Material.DIAMOND_HELMET;
+        return m == Material.LEATHER_HELMET || m == Material.IRON_HELMET || m == Material.CHAINMAIL_HELMET || m == Material.GOLDEN_HELMET || m == Material.DIAMOND_HELMET || m == Material.NETHERITE_HELMET;
     }
 
     boolean isChestplate(Material m) {
-        return m == Material.LEATHER_CHESTPLATE || m == Material.IRON_CHESTPLATE || m == Material.CHAINMAIL_CHESTPLATE || m == Material.GOLDEN_CHESTPLATE || m == Material.DIAMOND_CHESTPLATE;
+        return m == Material.LEATHER_CHESTPLATE || m == Material.IRON_CHESTPLATE || m == Material.CHAINMAIL_CHESTPLATE || m == Material.GOLDEN_CHESTPLATE || m == Material.DIAMOND_CHESTPLATE || m == Material.NETHERITE_CHESTPLATE;
     }
 
     boolean isLeggings(Material m) {
-        return m == Material.LEATHER_LEGGINGS || m == Material.IRON_LEGGINGS || m == Material.CHAINMAIL_LEGGINGS || m == Material.GOLDEN_LEGGINGS || m == Material.DIAMOND_LEGGINGS;
+        return m == Material.LEATHER_LEGGINGS || m == Material.IRON_LEGGINGS || m == Material.CHAINMAIL_LEGGINGS || m == Material.GOLDEN_LEGGINGS || m == Material.DIAMOND_LEGGINGS || m == Material.NETHERITE_LEGGINGS;
     }
 
     boolean isBoots(Material m) {
-        return m == Material.LEATHER_BOOTS || m == Material.IRON_BOOTS || m == Material.CHAINMAIL_BOOTS || m == Material.GOLDEN_BOOTS || m == Material.DIAMOND_BOOTS;
+        return m == Material.LEATHER_BOOTS || m == Material.IRON_BOOTS || m == Material.CHAINMAIL_BOOTS || m == Material.GOLDEN_BOOTS || m == Material.DIAMOND_BOOTS || m == Material.NETHERITE_BOOTS;
     }
 }

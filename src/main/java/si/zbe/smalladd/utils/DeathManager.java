@@ -8,6 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import si.zbe.smalladd.Main;
+import si.zbe.smalladd.Messages;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,7 +79,7 @@ public class DeathManager {
 
                 list.add(loc);
             } catch (Exception e) {
-                p.sendMessage(ChatColor.RED + "No known death locations.");
+                p.sendMessage(ChatColor.RED + Messages.getString("SA.NoKnownDeathLocation"));
             }
         }
         return list;

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,11 +37,8 @@ public class TorchEvent implements Listener {
 			itemmeta.setDisplayName(ChatColor.GOLD + "Infinite Torch");
 			itemmeta.setLore(lore);
 			item.setItemMeta(itemmeta);
-			
-			if (itemInHand.getItemMeta() == null && itemInOffHand.getItemMeta() == null) 
-				return;
 
-			if (itemInHand.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Infinite Torch")) {
+			if (itemInHand.isSimilar(item)) {
 				Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
 					@Override
 					public void run() {
@@ -49,7 +47,7 @@ public class TorchEvent implements Listener {
 					}
 				}, 1L);
 				return;
-			} else if (itemInOffHand.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Infinite Torch")) {
+			} else if (itemInOffHand.isSimilar(item)) {
 				Bukkit.getScheduler().runTaskLater(Main.plugin, new Runnable() {
 					@Override
 					public void run() {

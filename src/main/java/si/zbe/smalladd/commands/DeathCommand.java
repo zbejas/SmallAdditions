@@ -100,14 +100,14 @@ public class DeathCommand implements CommandExecutor {
 
                     for (String s : worlds) {
                         if (s.equalsIgnoreCase(loc.getWorld().getName())) {
-                            p.sendMessage(ChatColor.RED + "World disabled.");
+                            p.sendMessage(ChatColor.RED + Messages.getString("SA.WorldDisabled"));
                             return true;
                         }
                     }
 
                     p.teleport(loc);
                 } catch (Exception e) {
-                    p.sendMessage(ChatColor.RED + "No saved deaths.");
+                    p.sendMessage(ChatColor.RED + Messages.getString("SA.NoSavedDeaths"));
                 }
             }
 

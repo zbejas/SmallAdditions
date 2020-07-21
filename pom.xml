@@ -5,7 +5,7 @@
 
 	<groupId>si.zbe</groupId>
 	<artifactId>SmallAdditions</artifactId>
-	<version>1.4.5</version>
+	<version>1.4.7</version>
 	<packaging>jar</packaging>
 
 	<name>SmallAdditions</name>
@@ -30,16 +30,16 @@
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.15.2-R0.1-SNAPSHOT</version>
+			<version>1.16.1-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>craftbukkit</artifactId>
-			<version>1.15.2</version>
+			<version>1.16.1</version>
 			<scope>system</scope>
 			<!--suppress MavenModelInspection -->
-			<systemPath>D:\Projects\Eclipse\Workspace\craftbukkit-1.15.2.jar</systemPath>
+			<systemPath>D:\Projects\Eclipse\Workspace\craftbukkit-1.16.1.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.bstats</groupId>

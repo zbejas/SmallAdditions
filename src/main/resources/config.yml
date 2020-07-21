@@ -11,7 +11,7 @@ DeathBook:
   BannedWorlds:
     - world_nether
   BookOnRespawn: true
-  Enabled: true
+  Enabled: false
 Language: english
 NoTrample: true
 Tools:
@@ -20,6 +20,7 @@ Tools:
     Priorities:
       Chain: 3
       Diamond: 5
+      Netherite: 6
       Gold: 2
       Iron: 4
       Leather: 1

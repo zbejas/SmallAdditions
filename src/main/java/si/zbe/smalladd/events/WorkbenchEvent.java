@@ -17,16 +17,33 @@ public class WorkbenchEvent implements Listener {
             return;
 
         if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-        	final ItemStack itemInHand = p.getInventory().getItemInMainHand();
-			final ItemStack itemInOffHand = p.getInventory().getItemInOffHand();
-			
-			if (itemInHand.getType() == Material.CRAFTING_TABLE || itemInOffHand.getType() == Material.CRAFTING_TABLE) {
-				if (itemInHand.getItemMeta() == null && itemInOffHand.getItemMeta() == null) 
-					return;
-				
-                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench") && !itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench"))
+            final ItemStack itemInHand = p.getInventory().getItemInMainHand();
+            final ItemStack itemInOffHand = p.getInventory().getItemInOffHand();
+
+            if (itemInHand.getType() == Material.CRAFTING_TABLE) {
+
+                if (!itemInHand.hasItemMeta())
                     return;
-                
+
+                if (!itemInHand.getItemMeta().hasDisplayName())
+                    return;
+
+                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench"))
+                    return;
+
+                p.openWorkbench(null, true);
+                p.updateInventory();
+                e.setCancelled(true);
+            } else if (itemInOffHand.getType() == Material.CRAFTING_TABLE) {
+                if (!itemInOffHand.hasItemMeta())
+                    return;
+
+                if (!itemInOffHand.getItemMeta().hasDisplayName())
+                    return;
+
+                if (!itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench"))
+                    return;
+
                 p.openWorkbench(null, true);
                 p.updateInventory();
                 e.setCancelled(true);
