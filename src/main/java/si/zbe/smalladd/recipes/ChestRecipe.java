@@ -20,13 +20,17 @@ public class ChestRecipe {
 		logs.add(Material.JUNGLE_LOG);
 		logs.add(Material.OAK_LOG);
 		logs.add(Material.SPRUCE_LOG);
+		logs.add(Material.CRIMSON_STEM);
+		logs.add(Material.WARPED_STEM);
 		logs.add(Material.STRIPPED_ACACIA_LOG);
 		logs.add(Material.STRIPPED_BIRCH_LOG);
 		logs.add(Material.STRIPPED_DARK_OAK_LOG);
 		logs.add(Material.STRIPPED_JUNGLE_LOG);
 		logs.add(Material.STRIPPED_OAK_LOG);
 		logs.add(Material.STRIPPED_SPRUCE_LOG);
-		
+		logs.add(Material.STRIPPED_CRIMSON_STEM);
+		logs.add(Material.STRIPPED_WARPED_STEM);
+
 		r.shape("www","w w","www");
 		r.setIngredient('w', new RecipeChoice.MaterialChoice(logs));
 		

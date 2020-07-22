@@ -28,7 +28,7 @@ public class VillagerDeathEvent implements Listener {
 			}
 		}
 		
-		if (v.getKiller() instanceof Player)
+		if (v.getKiller() != null)
 			e.setDroppedExp(v.getVillagerExperience());
 		
 		int dropchance = rand.nextInt(100) + 1;
@@ -40,7 +40,5 @@ public class VillagerDeathEvent implements Listener {
 				e.getDrops().add(new ItemStack(Material.EMERALD, drop - minusdrop));
 			else
 				e.getDrops().add(new ItemStack(Material.EMERALD, drop));
-		else
-			return;
 	}
 }
