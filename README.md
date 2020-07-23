@@ -18,8 +18,6 @@ Its features include:
 
 Stats: [bStats](https://bstats.org/plugin/bukkit/SmallAdditions/6335)
 
-Plugin: [Spigot Resources](https://www.spigotmc.org/resources/smalladditions-crop-harvest-villager-drops-portable-crafting-and-more.74452/)
-
 ## Usage
 You can enable and disable all functions in the config file.
 
@@ -43,10 +41,14 @@ _Crop harvest now has animations! New gif incoming._
 
 ---
 
-#### Custom recipe
+#### Custom recipes
 Why craft planks and then chests, if you can craft chests directly from logs!
 
 ![Gif broken](https://i.imgur.com/Rqydxqb.gif)
+
+**New:** now you can also dye carpets!
+
+![Image not available](https://i.imgur.com/UYNynXr.png)
 
 ---
 
@@ -107,6 +109,15 @@ By giving a player or group the permission _smalladd.tool.workbech_, the player 
 ![Gif broken](https://i.imgur.com/T4KAM5P.gif)
 
 ---
+
+#### Death book
+On death, players with permissions will recieve a book with their death coordinates. Players with teleport permission can also click on those coordinates to be teleported there.
+
+---
+
+
+## Languages
+You can add your own language in the **lang.yml** file.
 
 
 ## Permissions

@@ -17,6 +17,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         Metrics metrics = new Metrics(this, 6335);
+        Messages.setupMessages();
         setConfig();
         updateCheck();
         registerCommands();

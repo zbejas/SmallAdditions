@@ -13,7 +13,6 @@ DeathBook:
     - world_nether
   BookOnRespawn: true
   Enabled: false
-Language: english
 NoTrample: true
 Tools:
   AutoArmor:
