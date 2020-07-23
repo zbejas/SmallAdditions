@@ -1,9 +1,11 @@
 package si.zbe.smalladd;
 
 import org.bstats.bukkit.Metrics;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 import si.zbe.smalladd.commands.*;
 import si.zbe.smalladd.events.*;
+import si.zbe.smalladd.recipes.CarpetRecipe;
 import si.zbe.smalladd.recipes.ChestRecipe;
 import si.zbe.smalladd.utils.DeathManager;
 
@@ -193,6 +195,16 @@ public class Main extends JavaPlugin {
         if (getConfig().getBoolean("CustomRecipes.Chest")) {
             ChestRecipe chest = new ChestRecipe();
             plugin.getServer().addRecipe(chest.getRecipe());
+        } else {
+            getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
+        }
+        if (getConfig().getBoolean("CustomRecipes.Carpet")) {
+            CarpetRecipe carpet = new CarpetRecipe();
+
+            for (ShapedRecipe recipe : carpet.getRecipes()) {
+                plugin.getServer().addRecipe(recipe);
+            }
+            //plugin.getServer().addRecipe(chest.getRecipe());
         } else {
             getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
         }
