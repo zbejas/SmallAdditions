@@ -7,6 +7,7 @@ import si.zbe.smalladd.commands.*;
 import si.zbe.smalladd.events.*;
 import si.zbe.smalladd.recipes.CarpetRecipe;
 import si.zbe.smalladd.recipes.ChestRecipe;
+import si.zbe.smalladd.recipes.MelonRecipe;
 import si.zbe.smalladd.utils.DeathManager;
 
 public class Main extends JavaPlugin {
@@ -176,6 +177,13 @@ public class Main extends JavaPlugin {
             getLogger().info("DeathBook " + Messages.getString("SA.OptionDisabled"));
         }
 
+        // Creepers
+        if (getConfig().getBoolean("DisableCreeper")) {
+            getServer().getPluginManager().registerEvents(new CreeperExplodeEvent(), this);
+        } else {
+            getLogger().info("Creepers exsplosion prevention " + Messages.getString("SA.OptionDisabled"));
+        }
+
         // UPDATE
         getServer().getPluginManager().registerEvents(new JoinUpdateEvent(), this);
 
@@ -193,21 +201,28 @@ public class Main extends JavaPlugin {
     }
 
     private void registerRecipes() {
+        // CHEST
         if (getConfig().getBoolean("CustomRecipes.Chest")) {
             ChestRecipe chest = new ChestRecipe();
             plugin.getServer().addRecipe(chest.getRecipe());
         } else {
-            getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
+            getLogger().info("[Chest Recipe] " + Messages.getString("SA.CustomRecipesDisabled"));
         }
+        // MELON
+        if (getConfig().getBoolean("CustomRecipes.Melons")) {
+            MelonRecipe chest = new MelonRecipe();
+            plugin.getServer().addRecipe(chest.getRecipe());
+        } else {
+            getLogger().info("[Melon Recipe] " + Messages.getString("SA.CustomRecipesDisabled"));
+        }
+        // CARPET
         if (getConfig().getBoolean("CustomRecipes.Carpet")) {
             CarpetRecipe carpet = new CarpetRecipe();
-
             for (ShapedRecipe recipe : carpet.getRecipes()) {
                 plugin.getServer().addRecipe(recipe);
             }
-            //plugin.getServer().addRecipe(chest.getRecipe());
         } else {
-            getLogger().info(Messages.getString("SA.CustomRecipesDisabled"));
+            getLogger().info("[Carpet Recipe] " + Messages.getString("SA.CustomRecipesDisabled"));
         }
     }
 

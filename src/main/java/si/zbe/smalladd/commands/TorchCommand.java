@@ -46,9 +46,9 @@ public class TorchCommand implements CommandExecutor {
 			ItemStack item = p.getInventory().getItemInMainHand();
 			ItemMeta itemmeta = item.getItemMeta();
 			ArrayList<String> lore = new ArrayList<String>();
-			lore.add(ChatColor.RED + "Right-click anywhere to place " + ChatColor.GOLD + "Infinite Torch");
-			lore.add(ChatColor.GOLD + "Owner: " + ChatColor.GREEN + p.getName());
-			itemmeta.setDisplayName(ChatColor.GOLD + "Infinite Torch");
+			lore.add(ChatColor.RED + Messages.getString("SA.TorchLore") + " " + ChatColor.GOLD + Messages.getString("SA.TorchName"));
+			lore.add(ChatColor.GOLD + Messages.getString("SA.Owner") + ": " + ChatColor.GREEN + p.getName());
+			itemmeta.setDisplayName(ChatColor.GOLD + Messages.getString("SA.TorchName"));
 			itemmeta.setLore(lore);
 			item.setItemMeta(itemmeta);
 			p.sendMessage(ChatColor.GREEN + Messages.getString("SA.TorchNameChanged"));

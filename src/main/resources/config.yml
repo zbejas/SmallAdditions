@@ -8,6 +8,8 @@ Crops: true
 CustomRecipes:
   Carpet: true
   Chest: true
+  Melons: true
+DisableCreeper: true
 DeathBook:
   BannedWorlds:
     - world_nether

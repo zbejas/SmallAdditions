@@ -2,6 +2,7 @@ package si.zbe.smalladd.events;
 
 import net.minecraft.server.v1_16_R1.BlockPosition;
 import net.minecraft.server.v1_16_R1.PacketPlayOutAnimation;
+import org.bukkit.CropState;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -70,7 +71,6 @@ public class CropEvent implements Listener {
             return null;
     }
 
-    @SuppressWarnings("deprecation")
     public void harvestCrop(Material m, PlayerInteractEvent e) {
         Block block = e.getClickedBlock();
         if (isCrop(m)) {

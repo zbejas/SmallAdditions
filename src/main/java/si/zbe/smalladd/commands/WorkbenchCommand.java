@@ -44,9 +44,9 @@ public class WorkbenchCommand implements CommandExecutor {
 			ItemStack item = p.getInventory().getItemInMainHand();
 			ItemMeta itemmeta = item.getItemMeta();
 			ArrayList<String> lore = new ArrayList<String>();
-			lore.add(ChatColor.RED + "Right-click anywhere to open " + ChatColor.GOLD + "Portable Workbench");
-			lore.add(ChatColor.GOLD + "Owner: " + ChatColor.GREEN + p.getName());
-			itemmeta.setDisplayName(ChatColor.GOLD + "Portable Workbench");
+			lore.add(ChatColor.RED + Messages.getString("SA.WorkbenchLore") + " " + ChatColor.GOLD + Messages.getString("SA.WorkbenchName"));
+			lore.add(ChatColor.GOLD + Messages.getString("SA.Owner") + ": " + ChatColor.GREEN + p.getName());
+			itemmeta.setDisplayName(ChatColor.GOLD + Messages.getString("SA.WorkbenchName"));
 			itemmeta.setLore(lore);
 			item.setItemMeta(itemmeta);
 			p.sendMessage(ChatColor.GREEN + Messages.getString("SA.WorkbenchNameChanged"));

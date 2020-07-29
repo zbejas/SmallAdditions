@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import si.zbe.smalladd.Messages;
 
 public class WorkbenchEvent implements Listener {
     @EventHandler
@@ -28,7 +29,7 @@ public class WorkbenchEvent implements Listener {
                 if (!itemInHand.getItemMeta().hasDisplayName())
                     return;
 
-                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench"))
+                if (!itemInHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + Messages.getString("SA.WorkbenchName")))
                     return;
 
                 p.openWorkbench(null, true);
@@ -41,7 +42,7 @@ public class WorkbenchEvent implements Listener {
                 if (!itemInOffHand.getItemMeta().hasDisplayName())
                     return;
 
-                if (!itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Portable Workbench"))
+                if (!itemInOffHand.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + Messages.getString("SA.WorkbenchName")))
                     return;
 
                 p.openWorkbench(null, true);
