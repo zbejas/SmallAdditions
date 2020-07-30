@@ -1,7 +1,8 @@
 
-# SmallAdditions
- 
-## Description
+SmallAdditions
+=== 
+Description
+---
 SmallAdditions is a plugin, that adds a few features to vanilla Minecraft. 
 
 Its features include: 
@@ -21,7 +22,8 @@ Its features include:
 
 Stats: [bStats](https://bstats.org/plugin/bukkit/SmallAdditions/6335)
 
-## Usage
+Usage
+---
 You can enable and disable all functions in the config file.
 
 Command | Aliases | Usage | Premission
@@ -33,12 +35,12 @@ Command | Aliases | Usage | Premission
 /sadeath | /sad | Gives the player a Death Note | smalladd.deathbook
  /saupdate | /sau | Check for updates. | smalladd.admin
 
-## How it works
-
+How it works
+---
 #### Crop harvest
 By giving a player or group the permission _smalladd.crop.*_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contain the seeds, the seed will be taken out of the drop and if the drops don't contain it, then the seed will be taken out of the players' inventory. If the players' inventory doesn't contain any seeds, the crop won't be replanted.
 
-![Gif broken](https://i.imgur.com/pUYHXcn.gif)
+![Gif broken](https://i.imgur.com/V4l8zRK.gif)
 
 ---
 
@@ -95,7 +97,7 @@ By giving a player or group the permission _smalladd.tool.torch_, the player can
 
 WARNING: Broken torches still drop items.
 
-![Gif broken](https://i.imgur.com/JQFD38i.gif)
+![Gif broken](https://i.imgur.com/J1CUygz.gif)
 
 ---
 
@@ -146,7 +148,8 @@ Creeper griefing is annoying...If not you can just disable it.
 
 ---
 
-## Config
+Config
+---
 I try to make everything customizable. Don't like some additions? Disable it all in the config.
 
 Vague description:
@@ -155,12 +158,13 @@ Vague description:
 ---
 
 
-## Languages
+Languages
+---
 You can modify lang.yml. This will be improved in the future.
 
 
-## Permissions
-
+Permissions
+---
 Permissions | Usage
 --- | ---
 smalladd.* | All permissions for this plugin.
@@ -183,6 +187,7 @@ smalladd.tool.torch | Enables infinite torch command and usage.
 smalladd.tool.workbench | Enables portable workbench command and usage.
 smalladd.villagerleash | Lets players leash villagers.
 
-## Support the project
+Support the project
+===
 If you like this project, and wish to see frequent updates, support this project.
 <a href="https://paypal.me/zbe420?locale.x=en_US"><img style="width: 30%; height: 30%;" src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png?fbclid=IwAR1C58lEX29L-ZlY23vzQcaZBrJnihD9z1B075At7eNiBnaxzT4If08Wung"></img></a>
