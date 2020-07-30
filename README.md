@@ -40,7 +40,7 @@ How it works
 #### Crop harvest
 By giving a player or group the permission _smalladd.crop.*_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contain the seeds, the seed will be taken out of the drop and if the drops don't contain it, then the seed will be taken out of the players' inventory. If the players' inventory doesn't contain any seeds, the crop won't be replanted.
 
-![Gif broken](https://i.imgur.com/V4l8zRK.gif)
+![Gif broken](https://i.imgur.com/mdzpzh4.gif)
 
 ---
 
