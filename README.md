@@ -1,20 +1,23 @@
+
 # SmallAdditions
  
 ## Description
 SmallAdditions is a plugin, that adds a few features to vanilla Minecraft. 
 
 Its features include: 
-* Extra crafting recipes
-* Crop harvest and replant
-* Villager leash
-* Villagers drop their inventory, XP and 0-2 emeralds
+* Crop harvest with right-click
 * Crafting to-go
-* Auto-Feed
+* Prevent crop trample
+* Handy crafting recipes
+* Leashing villagers
+* Villager inventory and xp drops
+* Auto-feed
+* Auto armor switch
+* Armor switch with right-click
 * Infinite torches
-* Totem in inventory
-* Improved hoes
-* Prevents trampling
-* Lets you mine spawners
+* Totem usage from inventory
+* Mining spawners
+* Block creeper destruction
 
 Stats: [bStats](https://bstats.org/plugin/bukkit/SmallAdditions/6335)
 
@@ -23,8 +26,8 @@ You can enable and disable all functions in the config file.
 
 Command | Aliases | Usage | Premission
 --- | --- | --- | ----
-/autoarmor | /af | Player enables AutoArmor | smalladd.tool.armor
-/autofeed <Food option> | /af | Player selects food that is then fed to the player. | smalladd.autofeed
+/autoarmor | /aa | Player enables AutoArmor | smalladd.tool.armor
+/autofeed `<Food option>` | /af | Player selects food that is then fed to the player. | smalladd.autofeed
 /portableworkbench | /pwb | Sets item name to 'Portable Workbench'. | smalladd.tool.workbench
 /infinitetorch | /it | Creates an infinite torch | smalladd.tool.torch
 /sadeath | /sad | Gives the player a Death Note | smalladd.deathbook
@@ -35,27 +38,34 @@ Command | Aliases | Usage | Premission
 #### Crop harvest
 By giving a player or group the permission _smalladd.crop.*_ (or any of the separate crops permissions), the player can right-click harvest crops. The seeds will be auto-replanted. If the drops contain the seeds, the seed will be taken out of the drop and if the drops don't contain it, then the seed will be taken out of the players' inventory. If the players' inventory doesn't contain any seeds, the crop won't be replanted.
 
-_Crop harvest now has animations! New gif incoming._
-
-![Gif broken](https://i.imgur.com/6PwLcbN.gif)
+![Gif broken](https://i.imgur.com/pUYHXcn.gif)
 
 ---
 
 #### Custom recipes
-Why craft planks and then chests, if you can craft chests directly from logs!
+SmallAdditions has a handful of different recipes to improve your time playing.
 
-![Gif broken](https://i.imgur.com/Rqydxqb.gif)
+_**Chest from logs**_
+You can craft 4 chests from any kind of log.
 
-**New:** now you can also dye carpets!
+![Image broken](https://i.imgur.com/Y0PiypX.png)
 
-![Image not available](https://i.imgur.com/UYNynXr.png)
+_**Melons to slices**_
+You can now cut up your own melon! No more block placing and breaking to turn melons into melon slices.
+
+![Image broken](https://i.imgur.com/nIBdTKz.png)
+
+_**Dying carpets**_
+You can now dye 8 carpets with a single dye.
+
+![Gif broken](https://i.imgur.com/I2jkEPe.gif)
 
 ---
 
 #### No crop trample
 By giving a player or group the permission _smalladd.notrample_, the player or group can't trample any of the crops.
 
-![Gif broken](https://i.imgur.com/IL7aJsj.gif)
+![Gif broken](https://camo.githubusercontent.com/373a62f1d39621043b85dda117a7cf40335f1f51/68747470733a2f2f692e696d6775722e636f6d2f494c37614a736a2e676966)
 
 ---
 
@@ -76,7 +86,7 @@ Players with _smalladd.villagerleash_ can leash villagers.
 #### Totem in inventory
 Players with a totem in their inventory slot will still get totem effect.
 
-![Gif broken](https://i.imgur.com/77MMzE5.gif)
+![Gif broken](https://i.imgur.com/ox8l48D.gif)
 
 ---
 
@@ -85,14 +95,14 @@ By giving a player or group the permission _smalladd.tool.torch_, the player can
 
 WARNING: Broken torches still drop items.
 
-![Gif broken](https://i.imgur.com/spj9FjX.gif)
+![Gif broken](https://i.imgur.com/JQFD38i.gif)
 
 ---
 
 #### Mine spawners
 By giving a player or group the permission _smalladd.spawner_, the player can mine spawners with a silk-touch pickaxe.
 
-![Gif broken](https://i.imgur.com/ydBBpqA.gif)
+**BROKEN IN 1.16, WILL BE FIXED**
 
 ---
 
@@ -106,18 +116,47 @@ By giving a player or group the permission _smalladd.tool.hoe_, they can use imp
 #### Workbench
 By giving a player or group the permission _smalladd.tool.workbech_, the player can use the _/portableworkbench_ (or _/pwb_) to rename the workbench in hand into "Portable Workbench". When the player right-clicks on that workbench, crafting menu opens.
 
-![Gif broken](https://i.imgur.com/T4KAM5P.gif)
-
+![Gif broken](https://i.imgur.com/GGpMHbm.gif)
 ---
 
 #### Death book
 On death, players with permissions will recieve a book with their death coordinates. Players with teleport permission can also click on those coordinates to be teleported there.
 
+![Image broken](https://i.imgur.com/n0zrXYN.png)
+
+---
+
+#### Auto-Feed
+You will have to try it for yourself! Try using `/af <food option>`, for example `/af BAKED_POTATO` and watch the magic happen. Handy when busy isn't it?
+
+---
+
+#### Auto-Armor
+Try `/aa`. When you pick up armor that has higher priority (set in config) from the one you are wearing, they get switched automatically.
+
+---
+
+#### Armor Switch
+You can right-click to equip armor. You can't right-click to switch that equipped armor. **NO LONGER!**
+ 
+---
+
+#### Creepers
+Creeper griefing is annoying...If not you can just disable it.
+
+---
+
+## Config
+I try to make everything customizable. Don't like some additions? Disable it all in the config.
+
+Vague description:
+![Image broken](https://i.imgur.com/enyin79.png) 
+
 ---
 
 
 ## Languages
-You can add your own language in the **lang.yml** file.
+You can modify lang.yml. This will be improved in the future.
 
 
 ## Permissions

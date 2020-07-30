@@ -1,5 +1,5 @@
 AutoFeed: true
-MineSpawners: true
+MineSpawners: false
 BannedSpawners:
   - Pig
   - Cow

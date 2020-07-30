@@ -141,6 +141,8 @@ public class Main extends JavaPlugin {
 
         // SPAWNER
         if (getConfig().getBoolean("MineSpawners")) {
+            //TODO Remove this message and fix it
+            getLogger().info("[WARNING] Mining spawners will be fixed in the next version. Please disable this option in the config file.");
             getServer().getPluginManager().registerEvents(new MineSpawnerEvent(), this);
         } else {
             getLogger().info("MineSpawners " + Messages.getString("SA.OptionDisabled"));
