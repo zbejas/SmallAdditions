@@ -30,16 +30,16 @@
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.16.1-R0.1-SNAPSHOT</version>
+			<version>1.16.5-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>craftbukkit</artifactId>
-			<version>1.16.1</version>
+			<version>1.16.5</version>
 			<scope>system</scope>
 			<!--suppress MavenModelInspection -->
-			<systemPath>D:\Projects\Eclipse\Workspace\craftbukkit-1.16.1.jar</systemPath>
+			<systemPath>D:\Projects\Java\Resources\craftbukkit-1.16.5.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.bstats</groupId>

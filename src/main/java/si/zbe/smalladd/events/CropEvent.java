@@ -1,12 +1,11 @@
 package si.zbe.smalladd.events;
 
-import net.minecraft.server.v1_16_R1.BlockPosition;
-import net.minecraft.server.v1_16_R1.PacketPlayOutAnimation;
-import org.bukkit.CropState;
+import net.minecraft.server.v1_16_R3.BlockPosition;
+import net.minecraft.server.v1_16_R3.PacketPlayOutAnimation;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_16_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -89,7 +88,8 @@ public class CropEvent implements Listener {
                 }
             }
 
-            PacketPlayOutAnimation animation = new PacketPlayOutAnimation(((CraftPlayer)e.getPlayer()).getHandle(), 0);
+
+            PacketPlayOutAnimation animation = new PacketPlayOutAnimation(((CraftPlayer) e.getPlayer()).getHandle(), 0);
             ((CraftPlayer) e.getPlayer()).getHandle().playerConnection.sendPacket(animation);
 
             if (SeedInDrop) {

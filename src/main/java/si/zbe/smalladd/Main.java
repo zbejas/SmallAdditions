@@ -25,6 +25,7 @@ public class Main extends JavaPlugin {
         registerEvents();
         registerRecipes();
         getLogger().info(Messages.getString("SA.SmallAdditionsEnabled"));
+        getLogger().info("WARNING!!! This plugin has been pretty much abandoned. Not all functions might work as shown on GitHub. Please leave an issue on GitHub for any errors, and improvements.");
     }
 
     @Override

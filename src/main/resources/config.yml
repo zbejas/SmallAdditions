@@ -1,4 +1,4 @@
-AutoFeed: true
+AutoFeed: false
 MineSpawners: false
 BannedSpawners:
   - Pig
@@ -27,7 +27,7 @@ Tools:
       Iron: 4
       Leather: 1
   BetterHoes: false
-  InfiniteTorch: true
+  InfiniteTorch: false
   SwitchArmor: true
   TotemInInv: true
   Workbench: true
