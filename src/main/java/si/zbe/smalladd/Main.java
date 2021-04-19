@@ -25,7 +25,7 @@ public class Main extends JavaPlugin {
         registerEvents();
         registerRecipes();
         getLogger().info(Messages.getString("SA.SmallAdditionsEnabled"));
-        getLogger().info("WARNING!!! This plugin has been pretty much abandoned. Not all functions might work as shown on GitHub. Please leave an issue on GitHub for any errors, and improvements.");
+        getLogger().info("WARNING!!! Not all functions might work as shown on GitHub. Please leave an issue on GitHub for any errors, and improvements.");
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Main extends JavaPlugin {
         if (getConfig().getBoolean("Tools.AutoArmor.Enabled")) {
             getCommand("autoarmor").setExecutor(new AutoArmorCommand(this));
         } else {
-            //getLogger().info(Messages.getString("SA.TorchDisabled"));
+            getLogger().info("AutoArmor data: " + getConfig().getBoolean("Tools.AutoArmor.Enabled"));
             getCommand("autoarmor").setExecutor(new DisabledCommand(this));
         }
 
@@ -74,7 +74,7 @@ public class Main extends JavaPlugin {
         if (getConfig().getBoolean("DeathBook.Enabled")) {
             getCommand("sadeath").setExecutor(new DeathCommand(this));
         } else {
-            getCommand("autoarmor").setExecutor(new DisabledCommand(this));
+            getCommand("sadeath").setExecutor(new DisabledCommand(this));
         }
 
         // UPDATE

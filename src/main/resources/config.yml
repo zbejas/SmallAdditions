@@ -1,4 +1,4 @@
-AutoFeed: false
+AutoFeed: true
 MineSpawners: false
 BannedSpawners:
   - Pig
